@@ -142,34 +142,29 @@
                 </div>
                 <div class="right-container">
                     <div class="login-wrapper">
-                        <div class="login inner"> <a
-                                href="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#https://sso.toutiao.com"><button
-                                    type="button" class="login-button">登录</button> <button type="button"
-                                    class="login-button"
-                                    style=" background: white; border: solid red; color: red; ">注册</button> <svg
-                                    t="1605796587288" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                                    xmlns="http://www.w3.org/2000/svg" p-id="2844" width="44" height="44"
-                                    style=" position: absolute; margin-left: 10px; margin-right: 10px; ">
-                                    <path
-                                        d="M515.478588 14.230588c-274.025412 0-496.941176 222.945882-496.941176 496.941176 0 274.010353 222.915765 496.926118 496.941176 496.926118 273.980235 0 496.926118-222.915765 496.926118-496.926118C1012.404706 237.176471 789.473882 14.230588 515.478588 14.230588zM801.942588 878.742588c-14.652235-145.182118-137.532235-258.846118-286.479059-258.846118-148.946824 0-271.826824 113.679059-286.464 258.846118C119.627294 793.313882 49.136941 660.374588 49.136941 511.171765c0-257.144471 209.212235-466.386824 466.356706-466.386824 257.129412 0 466.341647 209.242353 466.341647 466.386824C981.820235 660.374588 911.329882 793.344 801.942588 878.742588z"
-                                        p-id="2845" fill="#d81e06"></path>
-                                    <path
-                                        d="M511.713882 241.829647c-89.765647 0-162.816 73.065412-162.816 162.816s73.065412 162.800941 162.816 162.800941c89.720471 0 162.785882-73.035294 162.785882-162.800941S601.434353 241.829647 511.713882 241.829647z"
-                                        p-id="2846" fill="#d81e06"></path>
-                                </svg></a> </div>
+                        <div class="login inner" id="user"> 
+                            <button type="button" class="login-button" id="login-button" onclick="paneopen(0)">登录</button> 
+                            <button type="button" class="login-button"  id="register-button" style=" background: white; border: solid red; color: red; "  onclick="paneopen(1)">注册</button>
+                            <img src="user.svg" style="width: 44px;height:44px;position: absolute;margin:0px 10px;"
+                                id="user-avator">
+                            <button type="button" class="login-button" id="usercenter-button"
+                                style="display: none;"  onclick="paneopen(2)">用户中心</button>
+                            <button type="button" class="login-button"
+                                style=" background: white; border: solid red; color: red;display: none; "
+                                id="logout-button">注销</button>
+                        </div>
                     </div>
                     <div class="hotnews">
                         <div class="pane-module " style=" height: 200px; ">
                             <div class="module-head">筛选</div>
                             <ul class="article-list">
-                                <form style=" ">
-                                    <div style=" margin-bottom: 10px; ">标题<input style=" height: 20px; "></div>
-                                    <div style=" margin-bottom: 10px; ">标签<input style=" height: 20px; "></div>
-                                    <div style=" margin-bottom: 10px; ">内容<input style=" height: 20px; "></div>
-                                    <div style=" margin-bottom: 10px; font-size: 14px; ">作者<input
-                                            style=" height: 20px; "></div>
-                                    <div style=" ">日期<select style=" height: 20px; "> </select></div>
-                                </form>
+                                <div class="filter">标题<input></div>
+                                <div class="filter">标签<input></div>
+                                <div class="filter">内容<input></div>
+                                <div class="filter">作者<input></div>
+                                <div class="filter">日期<input id="filter-begin-date" class="datepicker"
+                                        style="width: 92px;margin-right:10px;">至<input id="filter-end-date" class="datepicker"
+                                        style="width:92px"></div>
                             </ul>
                         </div>
                     </div>
@@ -180,29 +175,47 @@
                     <div class="pane-module undefined">
                         <div class="module-head">友情链接</div>
                         <ul class="links-wrapper">
-                            <li class="item"><a target="_self"
-                                    href="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#https://www.leju.com/">乐居网</a>
+                            <li class="item"><a target="_blank" href="https://toutiao.com">今日头条</a>
                             </li>
-                            <li class="item"><a target="_self"
-                                    href="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#http://www.rmlt.com.cn/">人民论坛网</a>
+                            <li class="item"><a target="_blank" href="https://www.icystal.top">Icystal Works</a>
                             </li>
+
                         </ul>
                     </div>
                     <div class="company-wrapper">
-                        <p class="J-company-name"> © 2020 今日头条</p> <a
-                            href="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
+                        <p class="J-company-name"> © 2020 今日军事</p> <a
+                            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
                             target="_blank" rel="noopener noreferrer"><img
-                                src="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABvFBMVEVHcEz25qTk0JXnxWXs04vktmTlzXP89t337Lr+/OD69M3eqFf53I316pzu46vu3H/Yrn3owH7UrFrftWjx166xkHz7x2fcrGrgvovz6ZLcp1nkvFnTk3DZr4LKhFvDfz7jrFPnvGzbnFHoxnz/+dDqw3r/74bktoCaaVyfaFXRrnbqvlkABHjVHhjWPCEFAWQBAW3qxmDmv1HvzGPw1nHkslTuy2zdm0T/1FXWAgjNAALcSSbWZDTquVDuyVnmuFjfo0rrsEnluF3VkkPdkkbUh0D8xVS5kVp2eX//3WDklTjUxXVreYnrXyPtgjvqcDLEun+Ujn3143PpwWDjrVPTLhw5FDjVdC/yoEHjrUqTeFpRNlHdhTXDEgpZVnPJJxNkEUPREg7MPSfYVi7URCj9LA/acTi7ABA8H0h7ipcAEpBzY2EZN5D2qjy7TCYAAID9vUbuvlDWjjzzfCjYnlj8jizXkVOsonP/723twmKTYDa0o2aptJHJWSr/vmBODk6NhnfFUiReWWbGPh1MADmxDg770m//0maBWDqEaUrEazOeXzCjfVKnjVm1gD/TvIfFrnz8zGSjmYTOeDoOTxX1AAAAK3RSTlMAKgLukeT5HEEIW8a2PIDnrMb6/GnOwuCcq+v0FEhdnOS80vtM5r6x+/dvgk6cRwAAAWVJREFUGNNjYIAAdhFRURF2BmTAIaDZ3dHZoyGgghDjdA+r6vL1Fy4Pc+eEibGLRUcVW+pZW0XURPNARRmFM5pKdXVDrRNj63wyVBnBgryB+b2+lqG6iXpWvgEGDYwQzYE6fdaWunp6ulZ63gYeaiA3aOVOynf3s6p1NnJJ9Pc2CLTgAwpKeE3Iyi7Ia7ZJS3P1zNYJyJUACorHmOUY5PmlJNmk+Nvo55h4iQMFhSYXZOqkp9o0hvulphv4uLmyAgXVzSf2Z7W0xsbHWycl6AS0mbIABQVdQtozdfT16xP09XU8PJ0iBYGCyiVlXmbeUT7VQnFxHpUR5pH8QEEuIwfncDdPCzdHiwqLGGdTOw6Q67mYjVyLjLVNtY1NzF3MmDkg4cZqaGivbRhsrO1gbxIsxQsW5AkycTLVDgm2NXewdzILkoSEJou0rV2ho62jtp2RIT8fEzRAZeTkuZUUWLkVWWTBQgDxBU8MyWNkzgAAAABJRU5ErkJggg==">&nbsp;京公网安备
-                            11000002002023号</a>
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABvFBMVEVHcEz25qTk0JXnxWXs04vktmTlzXP89t337Lr+/OD69M3eqFf53I316pzu46vu3H/Yrn3owH7UrFrftWjx166xkHz7x2fcrGrgvovz6ZLcp1nkvFnTk3DZr4LKhFvDfz7jrFPnvGzbnFHoxnz/+dDqw3r/74bktoCaaVyfaFXRrnbqvlkABHjVHhjWPCEFAWQBAW3qxmDmv1HvzGPw1nHkslTuy2zdm0T/1FXWAgjNAALcSSbWZDTquVDuyVnmuFjfo0rrsEnluF3VkkPdkkbUh0D8xVS5kVp2eX//3WDklTjUxXVreYnrXyPtgjvqcDLEun+Ujn3143PpwWDjrVPTLhw5FDjVdC/yoEHjrUqTeFpRNlHdhTXDEgpZVnPJJxNkEUPREg7MPSfYVi7URCj9LA/acTi7ABA8H0h7ipcAEpBzY2EZN5D2qjy7TCYAAID9vUbuvlDWjjzzfCjYnlj8jizXkVOsonP/723twmKTYDa0o2aptJHJWSr/vmBODk6NhnfFUiReWWbGPh1MADmxDg770m//0maBWDqEaUrEazOeXzCjfVKnjVm1gD/TvIfFrnz8zGSjmYTOeDoOTxX1AAAAK3RSTlMAKgLukeT5HEEIW8a2PIDnrMb6/GnOwuCcq+v0FEhdnOS80vtM5r6x+/dvgk6cRwAAAWVJREFUGNNjYIAAdhFRURF2BmTAIaDZ3dHZoyGgghDjdA+r6vL1Fy4Pc+eEibGLRUcVW+pZW0XURPNARRmFM5pKdXVDrRNj63wyVBnBgryB+b2+lqG6iXpWvgEGDYwQzYE6fdaWunp6ulZ63gYeaiA3aOVOynf3s6p1NnJJ9Pc2CLTgAwpKeE3Iyi7Ia7ZJS3P1zNYJyJUACorHmOUY5PmlJNmk+Nvo55h4iQMFhSYXZOqkp9o0hvulphv4uLmyAgXVzSf2Z7W0xsbHWycl6AS0mbIABQVdQtozdfT16xP09XU8PJ0iBYGCyiVlXmbeUT7VQnFxHpUR5pH8QEEuIwfncDdPCzdHiwqLGGdTOw6Q67mYjVyLjLVNtY1NzF3MmDkg4cZqaGivbRhsrO1gbxIsxQsW5AkycTLVDgm2NXewdzILkoSEJou0rV2ho62jtp2RIT8fEzRAZeTkuZUUWLkVWWTBQgDxBU8MyWNkzgAAAABJRU5ErkJggg==">&nbsp;
+                            京公安网备 11000002002023</a>
                     </div>
                 </div>
+                <div id="usercenter-container" style="display: none;opacity: 0;">
+                    <div class="pane-module" style="height: 320px;width: 400px;margin: calc(50vh - 160px) calc(50vw - 220px);">
+                        <div class="module-head"><div id="close-sector" style="float: right;margin:0;font-size:24px;top:-10px;right:-5px" onclick="paneclose()">×</div><div id="chgpwd-sector" onclick="panelswitcher(2)">修改密码</div><div id="avator-sector" onclick="panelswitcher(3)">修改头像</div><div id="chgfavor-sector" onclick="panelswitcher(4)">修改偏好</div><div id="login-sector" onclick="panelswitcher(0)">用户登录</div><div id="register-sector" onclick="panelswitcher(1)">用户注册</div></div>
+                        <div class="login-wrapper" id="login-panel">
+                            <div class="params">
+                                <input id="nickname" placeholder="昵称" style="display: none;">
+                                <input id="email" placeholder="邮箱">
+                                <input id="password" type="password" placeholder="密码">
+                                <input id="repasswd" type="password" placeholder="重复密码" style="display: none;">
+                                <div style="text-align: left;" id="pwdopt"><input type="checkbox" id="remember" style="height: 18px;margin:0;width: 18px;float: left;" >记住密码<span style="float:right ;cursor: pointer;" id="forget">忘记密码</span></div>
+                                    <button class="login-button " id="register" >注册</button>
+                                    <button class="login-button " id="login">登录</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
-    <script type="text/javascript"
-        src="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/common/vendor.9137add6.js"></script>
-    <script type="text/javascript"
-        src="https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#//sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/pages/index/index.89ae77bc.js"></script>
+    </div>
+
+    <script type="text/javascript" src="datepicker.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </body>
 
 </html>

@@ -769,7 +769,6 @@ a:visited {
     font-size: 12px;
     display: inline-block;
     line-height: 1;
-    speak: none;
     font-style: normal;
     font-weight: 400;
     font-variant: normal;
@@ -3232,12 +3231,13 @@ a:visited {
     padding-top: 4px;
     color: #fff;
     display: block;
-    font-size: 14px
+    font-size: 14px;
 }
 
 .login-wrapper {
     /* margin: 16px 0; */
     padding: 0px 30px;
+    position: relative;
     /* background: #f4f5f6 */
 }
 
@@ -3381,49 +3381,42 @@ a:visited {
     cursor: pointer;
     margin: 2px 10px;
 }
-
+.login-wrapper .params {
+    /* margin: 16px 0 14px; */
+        font-size:16px;
+        margin:20px;
+        text-align: center;padding-bottom:10px;
+}
+.login-wrapper .params  input{
+    height:40px;
+    border-radius: 4px;
+    background-color: white;
+    border:solid thin lightgray;
+    margin:10px 0px;
+    width:300px;
+    padding:0px 10px;
+}
+.login-wrapper .params  input:focus{
+    border:solid thin red;
+}
+.login-wrapper .params  .login-button{
+    height: 40px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: #ed4040;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 300px;
+}
+.login-wrapper .params .login-button:hover {
+    opacity: .9
+}
 .login-wrapper .login .login-button:hover {
     opacity: .9
 }
-
-.login-wrapper .login .third-login .sns {
-    display: inline-block;
-    position: relative;
-    width: 36px;
-    height: 58px;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: 100% 36px
-}
-
-.login-wrapper .login .third-login .sns:hover {
-    opacity: .8
-}
-
-.login-wrapper .login .third-login .sns:not(:last-child) {
-    margin-right: 24px
-}
-
-.login-wrapper .login .third-login .sns>span {
-    position: absolute;
-    left: 6px;
-    top: 41px;
-    width: 24px;
-    font-size: 12px;
-    line-height: 17px;
-    color: #777
-}
-
-.login-wrapper .login .third-login .qq {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAA4VBMVEVHcExKlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM5KlM4AAAAAAAAAAAAAAAAAAAAAAAAAAAD1rAX5rgUAAABcQAo+KwicbQ35rgX5rgVMPiQAAAAAAACaFhWFFBN9ExMAAAD//www.icystal.top/wp-content/uploads/2018/08/logomini.png#//www.icystal.top/wp-content/uploads/2018/08/logomini.png#pHx9KlM4jDwb3rAaVlZUdHR0IBgI1NTXn5+dVVVVgYGDDw8PrNDGzfQpOIgvMJiTyYV70d3P90M/W1tbnIiH16OdtHRrvS0dDQ0O4IyKXaQvTkwlfSUzCAAAALXRSTlMAELO/ovQxBReTu985Y/CYCSTrWd3Wg0DKge8HT7IU0cOl49/faDHxMpfHRd9eRY/uAAAB6klEQVQ4y5VV6XqiQBAcEAQ08T4AFTXXl6tFFgjgFdd8Od//www.icystal.top/wp-content/uploads/2018/08/logomini.png#gXbURGuIJmz/GrprpqdrqhvG0LR2S26o47HakFttjR2zqlFrGvW8Xqno+brRrBnVgzBdUY08OvKGqujfcael8jevXi6dplyaUjw5lOakqAhXlXIF6fC9pUIOIlpOPlqiJuf2MaVwnAqmFZRdHUWJ/WBS8bMivSTUcW0Nh9a1UFFpy4dSBqfTo431HHCWN8mrKvDXMenTzA7wqa7fyDBgr0XkR0EQ+UQWuNcYrQbv1rGJojhJ/AmRDUfmaxprN2Fnl+ec+PHraMUXXQg026yVykxBEoZxQKncLSbX4XtI4fvHH24f7yENIVCXWQOlxbmZz9bA2ZwzhJJrMCSH3c89otDzQiJvfo+CU9m4sv+8c133abF4e1ssnvjybh+pjAXgrSvYrQCE1B3be17yM6fT6cvj8tkDJnlqKIaz+PDXdR9HG3tAJnkxQM+NAHwlukF6gHBzDXyZLncnmkg4PKHdM4PRzgKzZ+MTgihMx6LVF25FlmOiKASZOXbyBUxsR5SZKNwu+Vucj+LZChdb4Wow8+JJFE1ibza4SrUCNtfloN+/ODs/P7vo9weX6ebK3K7ZB0D2kZJ5SGUfe9kH6X+M5uzD/pffxz88hEUgI+Q2SQAAAABJRU5ErkJggg==);
-    background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_qq_pc.83d80076.svg),none
-}
-
-.login-wrapper .login .third-login .weixin {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAANlBMVEVHcEw0wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB80wB/sFR1eAAAAEXRSTlMAM6J/wPPbFJQGsmdaQeok+zjJjmUAAAFoSURBVDjLlVWJsoMwCCQXkEvN//www.icystal.top/wp-content/uploads/2018/08/logomini.png#/swz4N0V4pM45tsoGwLAgwWqwuYWgtYHI1wjtbeUEuhmIkUxgXXl/CyAY244LhYOkZlwM/rRKHfFuKFs2rMAbt5arkPb2+93Un+vQ2xZi87ln/ngrxYnseSPDBCI+MKBj4aCb8O7IMX4wfwdeggalwSpzvN6Gw14i7w+ikzLttd+53TFxMT6+dtt3SM0uEiue/JIAH1otjf3WJFdwZuQrEgd0xTn6Wa2wH6Vxh2cWCrS3ZS+wrFSVBF4PesHnHydsxeYPQyUkd544zg8YoQDvL7M6M3aJHOnNNgXSQ6MW1K/I2csAoUOtSDi/ycBZglZOsoQdll20H5jaY12SSEhZDCzegVXocDxxUWOuKA7Ao4VrCPgSGyFFLqKLQzt1OHA2iGGQ2joxdQUrjAzMKd9AqibDyRbjTrTDfXNPtOj8A5kfK9JCaH3vzg/SH0Tw/7L98Pv4APSQWTNn31goAAAAASUVORK5CYII=);
-    background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/icon_weixin_pc.7eab8c3d.svg),none
-}
-
 .hotnews {
     min-height: 240px;
 }
@@ -3510,7 +3503,7 @@ a:visited {
     background-color: #f4f5f6;
     margin-bottom: 20px;
     padding: 18px 20px 20px;
-    /* height: 200px; */
+    min-height: 20px;
 }
 
 .pane-module .module-head {
@@ -3596,4 +3589,141 @@ a:visited {
     float: right;
     width: 320px;
     vertical-align: top;
+}
+
+.filter{
+    font-size:14px;
+    margin:10px 10px;
+}
+
+.filter input{
+    height:24px;
+    border-radius: 4px;
+    background-color: white;
+    border:solid thin lightgray;
+    margin-left:10px;
+    width:220px;
+}
+
+#usercenter-container{
+    position: fixed;width: 100%;height: 100%;top: 0;left:0;background: rgba(0,0,0,0.5);
+    transition: all 0.5s;
+}
+
+.ui-datePicker-wrapper{
+    width: 260px;
+    color: #666;
+    font-size: 16px;
+    box-shadow: 2px 2px 8px 2px rgba(128,128,128,.3);
+    display: none;
+    position: absolute;
+}
+.ui-datePicker-wrapper-show{
+    display: block;
+}
+.ui-datePicker-wrapper .ui-datePicker-header{
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+        
+}
+.ui-datePicker-wrapper .ui-datePicker-header a{
+    font-family: serif;
+    text-decoration: none;
+    color:  #ed4040;
+    height: 50px;
+    line-height: 50px;
+    cursor: pointer;
+}
+.ui-datePicker-wrapper .ui-datePicker-prev-btn{
+    float: left;
+    font-weight: bold;
+}
+.ui-datePicker-wrapper .ui-datePicker-next-btn{
+    float: right;
+}
+.ui-datePicker-curr-month{
+    color:  #ed4040;
+    font-weight: bold;
+}
+.ui-datePicker-wrapper .ui-datePicker-body table{
+    width: 100%;
+    border-collapse: collapse;
+        
+    background-color: #FFFFFF;
+}
+.ui-datePicker-wrapper .ui-datePicker-body th,
+.ui-datePicker-wrapper .ui-datePicker-body td{
+    height: 30px;
+    text-align: center;
+}
+.ui-datePicker-wrapper .ui-datePicker-body th{
+    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    color:  #ed4040;
+    font-weight: bold;
+        
+}
+
+.ui-datePicker-wrapper .ui-datePicker-body td{
+    font-size: 12px;
+    /*border: 1px solid #F0F0F0;*/
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.ui-datePicker-wrapper .ui-datePicker-body td:hover{
+    background: #E63946;
+    color: #fff;
+    /*border: 5px solid #1ABC9C;*/
+    /*border: 0px solid #FFFFFF;*/
+    border-radius: 3px;
+        
+    margin: 2px 1px;
+    line-height: 25px;
+    height: 25px;
+    box-shadow: 2px 2px 8px 2px rgba(128,128,128,.3);
+        
+        
+}
+.ui-datePicker-wrapper .ui-datePicker-body .on{
+    background:  #ed4040;
+    border-radius: 3px;
+    color: #fff;
+}
+.ui-datePicker-wrapper .ui-datePicker-body .notThisMonth{
+    background: #F0F0F0;
+    color: #ccc;
+        
+}
+
+.datepicker{
+    height: 24px;
+    line-height: 24px;
+    width: 250px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+.datepicker:focus{
+    outline: 0 none;
+    border: 1px solid #ed4040;
+}
+
+#forget:hover{
+    color: red;
+}
+
+.module-head div{
+    color:gray;margin-right:20px;cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all 0.5s;
+}
+.module-head div:hover{
+    color:red;
 }
