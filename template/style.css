@@ -3233,7 +3233,11 @@ a:visited {
     display: block;
     font-size: 14px;
 }
-
+#login-panel{
+    height: 320px;
+    margin: auto;
+    width: 340px;
+}
 .login-wrapper {
     /* margin: 16px 0; */
     padding: 0px 30px;
@@ -3383,25 +3387,38 @@ a:visited {
 }
 .login-wrapper .params {
     /* margin: 16px 0 14px; */
-        font-size:16px;
+        font-size:14px;
         margin:20px;
-        text-align: center;padding-bottom:10px;
+        text-align: center;
+        align-self: center;
+        width: 340px;
+}
+.login-wrapper .params svg{
+    width: 24px;
+    margin: 8px 10px;
+    fill: gray;
+    height: 24px;
+    position: absolute;
+    float: left;
+}
+#repwderr{
+    height: 20px;;
 }
 .login-wrapper .params  input{
     height:40px;
     border-radius: 4px;
     background-color: white;
     border:solid thin lightgray;
-    margin:10px 0px;
+    margin-bottom:20px;
     width:300px;
-    padding:0px 10px;
+    padding-left:44px;
 }
 .login-wrapper .params  input:focus{
     border:solid thin red;
 }
 .login-wrapper .params  .login-button{
     height: 40px;
-    margin-top: 20px;
+    margin-bottom: 10px;
     font-size: 14px;
     line-height: 20px;
     color: #fff;
@@ -3418,7 +3435,7 @@ a:visited {
     opacity: .9
 }
 .hotnews {
-    min-height: 240px;
+    /* min-height: 240px; */
 }
 
 .isFixed {
