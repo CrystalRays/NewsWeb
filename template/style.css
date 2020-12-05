@@ -3237,10 +3237,11 @@ a:visited {
     height: 320px;
     margin: auto;
     width: 340px;
+    display:flex;
 }
 .login-wrapper {
     /* margin: 16px 0; */
-    padding: 0px 30px;
+    padding: 0px 24px;
     position: relative;
     /* background: #f4f5f6 */
 }
@@ -3743,4 +3744,10 @@ a:visited {
 }
 .module-head div:hover{
     color:red;
+}
+.inputerr::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    red;
+}
+.params input{
+    font-size:14px
 }
