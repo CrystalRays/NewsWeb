@@ -9,15 +9,15 @@ def add_user(email:str,nickname:str,passwd:str):
     if fake_db.get(email):
         return False
     else:
-        fake_db[email]={"nickname":nickname,"passwd":passwd,"favor":None}
-        if fake_db[email]!={"nickname":nickname,"passwd":passwd,"favor":None}:
+        fake_db[email]={"nickname":nickname,"password":passwd,"favor":None,"avator":"user.svg"}
+        if fake_db[email]!={"nickname":nickname,"password":passwd,"favor":None,"avator":"user.svg"}:
             return False
         return True
 
 
-def update_user(email:str,nickname:str=None,passwd:str=None,favor:str=None):
+def update_user(email:str,nickname:str=None,passwd:str=None,favor:str=None,avator:str=None):
     if fake_db.get(email):
-        a={"nickname":nickname,"password":passwd,"favor":favor}
+        a={"nickname":nickname,"password":passwd,"favor":favor,"avator":avator}
         for key,value in a.items():
             if value!=None:
                 fake_db[email][key]=value

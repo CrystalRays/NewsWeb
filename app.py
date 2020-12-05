@@ -1,4 +1,4 @@
-from fastapi import FastAPI,Depends,Request,Body,Form,Cookie
+from fastapi import FastAPI,Depends,Request,Body,Form,Cookie,File,UploadFile
 import io
 import os
 from fastapi.responses import *
@@ -8,7 +8,9 @@ import uvicorn
 import re
 from datetime import datetime,timedelta
 import json
+import io
 import base64
+from PIL import Image
 
 from JWT import JWT,JWT_tail
 from data import *
@@ -34,6 +36,8 @@ def authe(token:str):
     head,body,tail=token.split(".")
     bodydata=json.loads(base64.b64decode(body))
     user=load_user(bodydata["email"])
+    if not user:
+        raise HTTPException(401,"Auth Failed")
     user["email"]=bodydata["email"]
     # print(111)
     # print(JWT_tail(secret+user["password"].encode(),f"{head}.{body}".encode())==tail , bodydata["exp"],int(datetime.utcnow().timestamp()))
@@ -59,8 +63,9 @@ async def renew(token:str):
 
 @app.post('/login')
 async def login(email:str=Body(...),password:str=Body(...),remember:int=Body(...)):
-
+    print(email,password,remember)
     user = load_user(email)  # we are using the same function to retrieve the user
+    print(user)
     if not user:
         raise HTTPException(401,"User Not Exists")  # you can also use your own HTTPException
     elif password != user['password']:
@@ -75,21 +80,17 @@ async def login(email:str=Body(...),password:str=Body(...),remember:int=Body(...
     return response
 
 @app.post('/register')
-async def login(email:str=Body(...),password:str=Body(...),remember:int=Body(...)):
-
+async def register(email:str=Body(...),nickname:str=Body(...),password:str=Body(...),repasswd:str=Body(...)):
+    print(email,nickname,password,repasswd)
     user = load_user(email)  # we are using the same function to retrieve the user
-    if not user:
-        raise HTTPException(401,"User Not Exists")  # you can also use your own HTTPException
-    elif password != user['password']:
-        raise HTTPException(401,"Incorrect Password")
-    max_age=timedelta(hours=1 if not remember else 168)
-    exptime=datetime.utcnow()+max_age
-    token = JWT(secret+user["password"].encode(),{"email":email,"exp":int(exptime.timestamp())})
-    response=JSONResponse({'nickname':user['nickname'],'token': token,"avator":user["avator"],"favor":user["favor"]},status_code=200)
-    if remember:
-        print(remember)
-        response.set_cookie(key="token",value=token,max_age=max_age.total_seconds(),expires=exptime.strftime("%A, %d-%b-%Y %H:%M:%S GMT"))
-    return response
+    if user:
+        raise HTTPException(400,"User Exists")  # you can also use your own HTTPException
+    elif password != repasswd:
+        raise HTTPException(400,"repeat password not same")
+    elif add_user(email,nickname,password):
+        return JSONResponse({'result':"success"},status_code=200)
+    else:
+        return JSONResponse({'result':"unknown error"},status_code=500)
 
 @app.post('/chgpwd')
 async def chgpwd(token:str,password:str=Body(...),repasswd:str=Body(...)):
@@ -98,6 +99,23 @@ async def chgpwd(token:str,password:str=Body(...),repasswd:str=Body(...)):
         raise HTTPException(400,"repeat password not same")
     if update_user(user["email"],passwd=password):
         return JSONResponse({'result':"success"},status_code=200)
+    else:
+        return JSONResponse({'result':"unknown error"},status_code=500)
+
+@app.post('/uploadAvator')
+async def chgAvator(token:str,file:UploadFile=File(...)):
+    user=authe(token)
+    contents=await file.read()
+    pic=Image.open(io.BytesIO(contents)).convert('RGB')
+    x,y=pic.size
+    x,y=map(lambda a:a//(min(x,y)//44),(x,y))
+    pic.resize((x,y))
+    picdata=io.BytesIO()
+    pic.save(picdata,"jpeg")
+    avator=f"data:image/jpeg;base64,"+base64.b64encode(picdata.getvalue()).decode()
+    if update_user(user["email"],avator=avator):
+        # print(user)
+        return JSONResponse({'result':"success","avator":avator},status_code=200)
     else:
         return JSONResponse({'result':"unknown error"},status_code=500)
 

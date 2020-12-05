@@ -160,10 +160,10 @@
                         <div class="login-wrapper">
                             <div class="login inner" id="user">
                                 <button type="button" class="login-button" id="login-button" onclick="paneopen(0)">登录</button>
-                                <button type="button" class="login-button" id="register-button" style=" background: white; border: solid red; color: red; " onclick="paneopen(1)">注册</button>
+                                <button type="button" class="login-button" id="register-button" style=" background: white; border: solid red; color: red; border-width: revert; " onclick="paneopen(1)">注册</button>
                                 <img src="user.svg" style="width: 44px;height:44px;vertical-align:bottom;margin:0px 10px;border-radius: 40px;cursor: pointer;" id="user-avator" onclick="avator()">
                                 <button type="button" class="login-button" id="usercenter-button" style="display: none;opacity:0;" onclick="paneopen(2)">用户中心</button>
-                                <button type="button" class="login-button" style=" background: white; border: solid red; color: red;display: none;opacity:0; " id="logout-button" onclick="logout()">注销</button>
+                                <button type="button" class="login-button" style=" background: white; border: solid red; color: red;display: none;opacity:0; border-width: revert; " id="logout-button" onclick="logout()">注销</button>
                             </div>
                         </div>
                         <div class="hotnews">
@@ -239,7 +239,7 @@
                                             <path d="M128.021333 725.333333c-6.890667 0-13.674667-3.328-17.770667-9.493333-6.549333-9.813333-3.904-23.04 5.909333-29.589333l192-128c9.813333-6.549333 23.061333-3.904 29.589333 5.909333 6.549333 9.813333 3.904 23.04-5.909333 29.589333l-192 128C136.192 724.16 132.074667 725.333333 128.021333 725.333333z" p-id="4519"></path>
                                             <path d="M895.978667 725.333333c-4.053333 0-8.170667-1.173333-11.818667-3.584l-192-128c-9.813333-6.549333-12.458667-19.776-5.909333-29.589333 6.528-9.813333 19.754667-12.458667 29.589333-5.909333l192 128c9.813333 6.549333 12.458667 19.776 5.909333 29.589333C909.653333 722.005333 902.869333 725.333333 895.978667 725.333333z" p-id="4520"></path>
                                         </svg>
-                                        <input name="email" defaultplaceholder="邮箱" placeholder="邮箱" onclick="inputnormalize(this)">
+                                        <input name="email" type="email" defaultplaceholder="邮箱" placeholder="邮箱" onclick="inputnormalize(this)">
                                     </div>
                                     <div id="password">
                                         <svg t="1606441786580" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10641" width="200" height="200">
@@ -255,8 +255,9 @@
                                             <path d="M797.8 959.6h-573c-49.4 0-89.5-40.2-89.5-89.5v-394c0-49.4 40.2-89.5 89.5-89.5h573c49.4 0 89.5 40.2 89.5 89.5V870c0.1 49.4-40.1 89.6-89.5 89.6z m-573-537.2c-29.6 0-53.7 24.1-53.7 53.7V870c0 29.6 24.1 53.7 53.7 53.7h573c29.6 0 53.7-24.1 53.7-53.7V476.1c0-29.6-24.1-53.7-53.7-53.7h-573z" p-id="10643"></path>
                                             <path d="M511.3 834.2h-0.3c-9.9-0.2-17.8-8.3-17.6-18.2 0.7-41.4 1.2-86.6 0.9-108.7-49.1-9-90.4-55.4-90.4-105.9 0-59.2 48.2-107.4 107.4-107.4s107.4 48.2 107.4 107.4c0 33.8-16.2 66-43.3 86.2-8 5.9-19.2 4.3-25.1-3.7-5.9-7.9-4.3-19.1 3.7-25.1 18.3-13.7 28.9-34.6 28.9-57.5 0-39.5-32.1-71.6-71.6-71.6s-71.6 32.1-71.6 71.6c0 36.8 34.8 71.6 71.6 71.6 4.8 0 9.5 2 12.8 5.4 6.7 6.8 7.4 7.5 5.1 138.2-0.1 9.9-8.1 17.7-17.9 17.7z" p-id="10644"></path>
                                         </svg>
-                                        <input name="repasswd" type="password" defaultplaceholder="重复密码" placeholder="重复密码" onkeyup="repwdchg()">
+                                        <input name="repasswd" type="password" defaultplaceholder="重复密码" placeholder="重复密码" onkeyup="repwdchg()" onclick="inputnormalize(this)">
                                     </div>
+                                    <input type="file" id="uploadAvator" style="display: none;padding-top:200px;width: 200px;height:200px;background-image: url(user.svg);align-self: center;cursor: pointer;background-repeat: no-repeat; background-size: cover;overflow: hidden; background-position: center;">
                                     <button class="login-button " id="opbtn" onclick="op(0)">登录</button>
                                     <div style="text-align: left;" id="pwdopt">
                                         <input type="checkbox" name="remember" style="height: 18px;margin:0;width: 18px;float: left;" value="1">

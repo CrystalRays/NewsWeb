@@ -41,6 +41,8 @@ panelswitcher=function(type){
                 $("#repasswd").style.display="none";
                 $("#pwdopt").style.display="block";
                 $("#email").style.display="";
+                $("#password").style.display="";
+                $("#uploadAvator").style.display="none";
             })
             break;
         case 1:
@@ -53,6 +55,8 @@ panelswitcher=function(type){
                 $("#repasswd").style.display="block";
                 $("#email").style.display="";
                 $("#pwdopt").style.display="none";
+                $("#password").style.display="";
+                $("#uploadAvator").style.display="none";
             })
             break;
         case 2:
@@ -66,6 +70,8 @@ panelswitcher=function(type){
                 $("#email").style.display="none";
                 $("#repasswd").style.display="";
                 $("#pwdopt").style.display="none";
+                $("#uploadAvator").style.display="none";
+                $("#password").style.display="";
             })
             lastswitcher=0;
             break;
@@ -78,10 +84,12 @@ panelswitcher=function(type){
                 $("#chgfavor-sector").style.color="";
                 $("#nickname").style.display="none";
                 $("#email").style.display="none";
-                $("#repasswd").style.display="";
+                $("#repasswd").style.display="none";
                 $("#pwdopt").style.display="none";
+                $("#uploadAvator").style.display="";
+                $("#password").style.display="none";
+                $("#uploadAvator").style.backgroundImage="url("+userdata.avator+")";
             });
-            $("#avator-sector").style.color="red";
             break;
         case 4:
             loginpanelanime(0,function(){
@@ -94,6 +102,8 @@ panelswitcher=function(type){
                 $("#email").style.display="none";
                 $("#repasswd").style.display="";
                 $("#pwdopt").style.display="none";
+                $("#uploadAvator").style.display="none";
+                $("#password").style.display="";
             })
             lastswitcher=1;
             
@@ -109,10 +119,12 @@ function op(opter){
         case 1:register();break;
         case 2:chgpwd();break;
         case 3:chgavator();break;
-        case 4:chgfavor;break;
+        case 4:chgfavor();break;
         default:;
     }
 }
+
+
 
 function loginpanelanime(direction,func){
     $("#login-panel").style.transition="all 0.5s";
@@ -153,9 +165,9 @@ function getData(url,data=null,method="GET",headers={}) {
     .then(response =>response.json().then(data=>({status:response.status,data:data})))// parses response to JSON
   }
 
-function postData(url, data) {
+function postData(url, data,headers={}) {
     // Default options are marked with *
-    return getData(url,JSON.stringify(data),"POST",{'content-type': 'application/json'});
+    return getData(url,data,"POST",headers);
 }
 
 
@@ -277,7 +289,7 @@ login=function (){
         alert("您已登录！");
         return
     }
-    postData('login', {email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),remember:$("input[name='remember']").checked})
+    postData('login', JSON.stringify({email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),remember:$("input[name='remember']").checked}),{'content-type': 'application/json'})
     .then(res => (function(res){
         if(res.status==200){
             userdata=res.data;
@@ -307,9 +319,10 @@ login=function (){
 }
 
 logout=function(){
+    document.cookie="token=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     if (userdata!=null){
         userdata=null;
-        document.cookie="token=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        
         $("#logout-button").style.transition="all 0.5s";
         $("#usercenter-button").style.transform="translate(200px,0px)";
         $("#usercenter-button").style.transition="all 0.5s";
@@ -351,7 +364,28 @@ avator=function(){
 }
 
 register=function(){
-
+    postData('register', JSON.stringify({nickname: $("input[name='nickname']").value,email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)}),{'content-type': 'application/json'})
+    .then(res=>{
+        if(res.status==400){
+            if(res.data.detail.search("User")!=-1){
+                $("input[name='email']").value="";
+                $("input[name='email']").setAttribute("placeholder","用户已存在");
+                $("input[name='email']").className="inputerr";
+            }
+            else if(res.data["detail"].search("password")>-1){
+                $("input[name='repasswd']").value="";
+                $("input[name='repasswd']").setAttribute("placeholder","密码不一致");
+                $("input[name='repasswd']").className="inputerr";
+            }
+        }
+        else if(res.status==200){
+            alert("注册成功，请登录");
+            panelswitcher(0);
+        }
+        else{
+            alert("注册失败，未知错误");
+        }
+    })
 }
 
 chgpwd=function(){
@@ -359,7 +393,7 @@ chgpwd=function(){
         auth(
             userdata["token"],
             function() {
-                postData('chgpwd?token='+userdata["token"], {password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)}).then(
+                postData('chgpwd?token='+userdata["token"], {password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)},{'content-type': 'application/json'}).then(
                     data=>function(){
                         if(data.status==200){
                             alert("修改成功，请重新登录");
@@ -367,7 +401,13 @@ chgpwd=function(){
                             paneclose();
                         }
                         else if(data.status==400){
-                            alert("两次密码不一致,请重试");
+                            $("input[name='repasswd']").value="";
+                            $("input[name='repasswd']").setAttribute("placeholder","密码不一致");
+                            $("input[name='repasswd']").className="inputerr";
+                        }
+                        else if(data.status==401){
+                            logout();
+                            alert("请先登录");
                         }
                         else{
                             alert("修改失败，未知错误");
@@ -376,7 +416,62 @@ chgpwd=function(){
                 )
             }
         );
-
     }
+    else{
+        logout();
+        alert("请先登录");
+    }
+}
+
+
+$('#uploadAvator').addEventListener('change', () => {
+    console.log(this);
+    if($('#uploadAvator').files[0]){
+        $('#uploadAvator').style.backgroundImage="url("+window.URL.createObjectURL($('#uploadAvator').files.item(0))+")";
+    }
+    else{
+        $('#uploadAvator').style.backgroundImage="url(user.svg)";
+    }
+    
+  })
+
+chgavator=()=>{
+    if(userdata==null){
+
+        alert("请先登录");
+        paneclose();
+        logout();
+
+        return
+    }
+   var formData = new FormData();
+   var fileField =$('#uploadAvator');
+   
+   formData.append('file', fileField.files[0]);
+   
+   postData('/uploadAvator?token='+userdata.token,formData)
+   .then(response => {
+    if(response.status==200){
+        paneclose();
+        $("#user-avator").setAttribute("src",response.data.avator);
+    }
+    else if(response.status==401){
+        alert("请先登录");
+        paneclose();
+        logout();
+    }
+    else{
+        alert("上传失败");
+    }
+   })
+}
+
+function name(){
+
+}
+
+name=function(){}
+
+xxx=()=>{
 
 }
