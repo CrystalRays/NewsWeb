@@ -12,8 +12,14 @@ import io
 import base64
 from PIL import Image
 
-from JWT import JWT,JWT_tail
-from data import *
+cwd=os.getcwd()
+if cwd[cwd.rfind("//")+1:]=="backend":
+    from config import server_ip,server_port
+    from modules import *
+    from JWT import JWT,JWT_tail
+else:
+    from backend.modules import *
+    from backend.JWT import JWT,JWT_tail
 
 app=FastAPI()
 secret=os.urandom(24)
@@ -23,13 +29,10 @@ secret=os.urandom(24)
 #     print(exc)
 #     return JSONResponse({"code": "400", "message": "Incorrect Params"},status_code=422)
 
-@app.get("/")
-async def home():
-    return HTMLResponse(content=open(f"template/index.html","r",encoding="utf-8").read(), status_code=200)
 
-@app.post('/test')
-async def auth(a,b,c=Cookie(None)):
-    return {"a":a,"b":b,"c":c}
+# @app.post('/test')
+# async def auth(a,b,c=Cookie(None)):
+#     return {"a":a,"b":b,"c":c}
 
 
 def authe(token:str):
@@ -46,26 +49,26 @@ def authe(token:str):
     else:
         raise HTTPException(401,"Auth Failed")
 
-@app.get("/token/auth")
+@app.get("/user/auth")
 async def auth(token:str):
     user= authe(token)
     return {'nickname':user['nickname'],'token': token,"favor":user["favor"],"avator":user["avator"]}
 
-@app.get("/token/renew")
+@app.get("/user/renew")
 async def renew(token:str):
     user=authe(token)
-    print(user)
+    # print(user)
     exptime=datetime.utcnow()+timedelta(hours=1)
     user["token"] = JWT(secret+user["password"].encode(),{"email":user["email"],"exp":int(exptime.timestamp())})
     return user
 
 
 
-@app.post('/login')
+@app.post('/user/login')
 async def login(email:str=Body(...),password:str=Body(...),remember:int=Body(...)):
-    print(email,password,remember)
+    # print(email,password,remember)
     user = load_user(email)  # we are using the same function to retrieve the user
-    print(user)
+    # print(user)
     if not user:
         raise HTTPException(401,"User Not Exists")  # you can also use your own HTTPException
     elif password != user['password']:
@@ -75,13 +78,13 @@ async def login(email:str=Body(...),password:str=Body(...),remember:int=Body(...
     token = JWT(secret+user["password"].encode(),{"email":email,"exp":int(exptime.timestamp())})
     response=JSONResponse({'nickname':user['nickname'],'token': token,"avator":user["avator"],"favor":user["favor"]},status_code=200)
     if remember:
-        print(remember)
+        # print(remember)
         response.set_cookie(key="token",value=token,max_age=max_age.total_seconds(),expires=exptime.strftime("%A, %d-%b-%Y %H:%M:%S GMT"))
     return response
 
-@app.post('/register')
+@app.post('/user/register')
 async def register(email:str=Body(...),nickname:str=Body(...),password:str=Body(...),repasswd:str=Body(...)):
-    print(email,nickname,password,repasswd)
+    # print(email,nickname,password,repasswd)
     user = load_user(email)  # we are using the same function to retrieve the user
     if user:
         raise HTTPException(400,"User Exists")  # you can also use your own HTTPException
@@ -92,7 +95,7 @@ async def register(email:str=Body(...),nickname:str=Body(...),password:str=Body(
     else:
         return JSONResponse({'result':"unknown error"},status_code=500)
 
-@app.post('/chgpwd')
+@app.post('/user/chgpwd')
 async def chgpwd(token:str,password:str=Body(...),repasswd:str=Body(...)):
     user=authe(token)
     if repasswd!=password:
@@ -102,7 +105,12 @@ async def chgpwd(token:str,password:str=Body(...),repasswd:str=Body(...)):
     else:
         return JSONResponse({'result':"unknown error"},status_code=500)
 
-@app.post('/uploadAvator')
+@app.get("/news/index")
+async def index(token:str,start:int,num:int):
+    pass
+
+
+@app.post('/user/uploadAvator')
 async def chgAvator(token:str,file:UploadFile=File(...)):
     user=authe(token)
     contents=await file.read()
@@ -119,17 +127,17 @@ async def chgAvator(token:str,file:UploadFile=File(...)):
     else:
         return JSONResponse({'result':"unknown error"},status_code=500)
 
-@app.get("/{file}")
-async def getfile(file):
-    if not (re.match(r"^[0-9A-Za-z\.]*$", file)):raise HTTPException(404,"Not Valid URI")
-    if file not in os.listdir("template"):raise HTTPException(404,"Not Found")
-    try:c=open(f"template/{file}","rb").read()
-    except:raise HTTPException(502,"Fetch Resource Failed")
-    # print(c)
-    return StreamingResponse(content=io.BytesIO(c), status_code=200,media_type=mimetypes.guess_type(file)[0])
+# @app.get("/{file}")
+# async def getfile(file):
+#     if not (re.match(r"^[0-9A-Za-z\.]*$", file)):raise HTTPException(404,"Not Valid URI")
+#     if file not in os.listdir("template"):raise HTTPException(404,"Not Found")
+#     try:c=open(f"template/{file}","rb").read()
+#     except:raise HTTPException(502,"Fetch Resource Failed")
+#     # print(c)
+#     return StreamingResponse(content=io.BytesIO(c), status_code=200,media_type=mimetypes.guess_type(file)[0])
 
-@app.get("/page/{pageid}")
-async def page(pageid):
+@app.get("/artical")
+async def page(id:str):
     pass
 
 if __name__ == "__main__":

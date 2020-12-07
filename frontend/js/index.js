@@ -5,7 +5,10 @@ window.onload=function(){
     dp1.init("#filter-end-date");
     var dp2=datepicker();
     dp2.init("#filter-begin-date");
+    category=window.location.hash.substr(1);
+    chgcate($("a[name="+category?category:"suggest"+"]"));
     cookielogin();
+    
 }
 
 function paneclose(){
@@ -36,7 +39,7 @@ panelswitcher=function(type){
                 $("#login-sector").style.color="red";
                 $("#register-sector").style.color="";
                 $("#opbtn").innerHTML="登录";
-                $("#opbtn").setAttribute("onclick","op(0)");
+                $("form").setAttribute("action","javascript:op(0)");
                 $("#nickname").style.display="none";
                 $("#repasswd").style.display="none";
                 $("#pwdopt").style.display="block";
@@ -50,7 +53,7 @@ panelswitcher=function(type){
                 $("#register-sector").style.color="red";
                 $("#login-sector").style.color="";
                 $("#opbtn").innerHTML="注册";
-                $("#opbtn").setAttribute("onclick","op(1)");
+                $("form").setAttribute("action","javascript:op(1)");
                 $("#nickname").style.display="block";
                 $("#repasswd").style.display="block";
                 $("#email").style.display="";
@@ -64,7 +67,7 @@ panelswitcher=function(type){
                 $("#chgpwd-sector").style.color="red";
                 $("#avator-sector").style.color="";
                 $("#opbtn").innerHTML="修改密码";
-                $("#opbtn").setAttribute("onclick","op(2)");
+                $("form").setAttribute("action","javascript:op(2)");
                 $("#chgfavor-sector").style.color="";
                 $("#nickname").style.display="none";
                 $("#email").style.display="none";
@@ -80,7 +83,7 @@ panelswitcher=function(type){
                 $("#chgpwd-sector").style.color="";
                 $("#avator-sector").style.color="red";
                 $("#opbtn").innerHTML="更新头像";
-                $("#opbtn").setAttribute("onclick","op(3)");
+                $("form").setAttribute("action","javascript:op(3)");
                 $("#chgfavor-sector").style.color="";
                 $("#nickname").style.display="none";
                 $("#email").style.display="none";
@@ -96,7 +99,7 @@ panelswitcher=function(type){
                 $("#chgpwd-sector").style.color="";
                 $("#avator-sector").style.color="";
                 $("#opbtn").innerHTML="保存修改";
-                $("#opbtn").setAttribute("onclick","op(4)");
+                $("form").setAttribute("action","javascript:op(4)");
                 $("#chgfavor-sector").style.color="red";
                 $("#nickname").style.display="none";
                 $("#email").style.display="none";
@@ -213,7 +216,7 @@ autorenew=function(){
         return
     }
     setTimeout(() => {
-        getData('/token/renew?token='+userdata["token"])
+        getData('/user/renew?token='+userdata["token"])
         .then(
             res=>function(){
                 if (res.status==200){
@@ -225,7 +228,7 @@ autorenew=function(){
 }
 
 auth=function(token,func){    
-    getData('/token/auth?token='+token)
+    getData('/user/auth?token='+token)
     .then(
         res=>function(){
             if (res.status==200){
@@ -289,7 +292,7 @@ login=function (){
         alert("您已登录！");
         return
     }
-    postData('login', JSON.stringify({email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),remember:$("input[name='remember']").checked}),{'content-type': 'application/json'})
+    postData('/user/login', JSON.stringify({email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),remember:$("input[name='remember']").checked}),{'content-type': 'application/json'})
     .then(res => (function(res){
         if(res.status==200){
             userdata=res.data;
@@ -331,7 +334,7 @@ logout=function(){
         $("#logout-button").style.opacity="0";
         $("#user-avator").style.transform="translate(200px,0px)";
         $("#user-avator").style.transition="all 0.5s";
-        $("#user-avator").setAttribute("src","user.svg");
+        $("#user-avator").setAttribute("src","/image/user.svg");
         setTimeout(() => {
             
             $("#logout-button").style.display="none";
@@ -364,7 +367,7 @@ avator=function(){
 }
 
 register=function(){
-    postData('register', JSON.stringify({nickname: $("input[name='nickname']").value,email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)}),{'content-type': 'application/json'})
+    postData('/user/register', JSON.stringify({nickname: $("input[name='nickname']").value,email: $("input[name='email']").value,password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)}),{'content-type': 'application/json'})
     .then(res=>{
         if(res.status==400){
             if(res.data.detail.search("User")!=-1){
@@ -393,7 +396,7 @@ chgpwd=function(){
         auth(
             userdata["token"],
             function() {
-                postData('chgpwd?token='+userdata["token"], {password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)},{'content-type': 'application/json'}).then(
+                postData('/user/chgpwd?token='+userdata["token"], {password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)},{'content-type': 'application/json'}).then(
                     data=>function(){
                         if(data.status==200){
                             alert("修改成功，请重新登录");
@@ -430,7 +433,7 @@ $('#uploadAvator').addEventListener('change', () => {
         $('#uploadAvator').style.backgroundImage="url("+window.URL.createObjectURL($('#uploadAvator').files.item(0))+")";
     }
     else{
-        $('#uploadAvator').style.backgroundImage="url(user.svg)";
+        $('#uploadAvator').style.backgroundImage="url(/image/user.svg)";
     }
     
   })
@@ -449,7 +452,7 @@ chgavator=()=>{
    
    formData.append('file', fileField.files[0]);
    
-   postData('/uploadAvator?token='+userdata.token,formData)
+   postData('/user/uploadAvator?token='+userdata.token,formData)
    .then(response => {
     if(response.status==200){
         paneclose();
@@ -466,12 +469,66 @@ chgavator=()=>{
    })
 }
 
-function name(){
+newsposition=0
+ 
+chgcate=(current)=>{
+    $(".channel-item.active").classList.remove("active");
+    current.classList.add("active");
+    if(current.id=="search-tab"){
+        current.style.height="";
+    }
+    else{
+        $("#search-tab").style.height="0px";
+    }
+}
+
+document.querySelectorAll(".channel-item").forEach(current=>{
+    current.addEventListener("click",()=>(chgcate(current)))
+})
+
+fadeinanime=(element)=>{
+    $("#login-button").style.opacity="0";
+    $("#login-button").style.display="";
+    setTimeout(() => {
+        $("#login-button").style.transition="all 0.5s";
+        $("#login-button").style.opacity="1";
+    }, 10);
+}
+
+loadNews=(category,start,num)=>{
+    token=""
+    if(userdata!=null){
+        token=user.token
+    }
+    getData("/news/index?category=${category}&start=${start}&num=${num}&token=${token}")
+    .then(list=>{
+        list.forEach(each => {
+            //return id,title,time,tag,content,img,author
+            if(each.img==""){
+                var newdiv= $(".no-mode").cloneNode(true);
+                
+            }
+            else{
+                var newdiv= $(".ugc-mode").cloneNode(true);
+                newdiv.querySelector(".img-wrap img").src=each.img;
+                newdiv.querySelector(".ugc-mode-content").innerText=each.content
+            }
+            newdiv.querySelector(".title-box")=each.title;
+            newdiv.querySelector(".source")=each.author;
+            newdiv.querySelector(".time")=each.time;
+            newdiv.querySelector(".tag")=each.tag;
+            document.insertBefore(newdiv,$(".insertme"))
+            $(".feed-list").insertBefore(newdiv,$(".insertme"));
+            fadeinanime(newdiv);
+        })
+    })
+}
+
+loadLikes=(label,num)=>{
 
 }
 
-name=function(){}
 
-xxx=()=>{
+loadArticles=()=>{
 
 }

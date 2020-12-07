@@ -1,6 +1,6 @@
 from lxml import etree
 import requests
-import MySQLdb
+import pymysql
 def news_downloads(urls):
     for url in urls:
         cur=db.cursor()
@@ -25,7 +25,7 @@ def news_downloads(urls):
         #print(author)
         cur.execute('insert into news(url,title,au_fr,keyword,context)values(%s,%s,%s,%s,%s)',(url,title,author,keyword,x))
         db.commit()
-db = MySQLdb.connect("localhost", "spider", "123456", "military", charset='utf8' )
+db = pymysql.connect("localhost", "spider", "123456", "military", charset='utf8' )
 #s=['https://mil.news.sina.com.cn/2020-12-05/doc-iiznezxs5352974.shtml']
 #news_downloads(s)
 r = requests.get('https://mil.news.sina.com.cn/')
