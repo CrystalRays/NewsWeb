@@ -331,8 +331,7 @@ article.syl-page-article pre.syl-page-code {
 @font-face {
   font-family: Monaco;
   font-style: normal;
-  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf1-ttcdn-tos.pstatp.com/obj/ttfe/ttf/Monaco.ttf)
-    format("truetype");
+  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf1-ttcdn-tos.pstatp.com/obj/ttfe/ttf/Monaco.ttf) format("truetype");
 }
 
 article.syl-page-article .hljs-comment {
@@ -502,8 +501,7 @@ article.syl-page-article .syl-page-br-hide {
   font-family: ByteNumber-Medium;
   font-weight: 600;
   font-style: normal;
-  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf1-ttcdn-tos.pstatp.com/obj/ttfe/ttf/ByteNumber-Medium_1576481743920.ttf)
-    format("truetype");
+  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf1-ttcdn-tos.pstatp.com/obj/ttfe/ttf/ByteNumber-Medium_1576481743920.ttf) format("truetype");
 }
 
 article.syl-page-article .tt-video-box {
@@ -524,8 +522,7 @@ article.syl-page-article .tt-video-box .video-fail {
 }
 
 .syl-page-article.syl-device-pc {
-  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei,
-    WenQuanYi Micro Hei, Helvetica Neue, Arial, sans-serif;
+  font-family: PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, Helvetica Neue, Arial, sans-serif;
   line-height: 1.75;
   margin-bottom: 24px;
 }
@@ -664,10 +661,7 @@ article.syl-page-article .tt-video-box .video-fail {
   font-size: 1em;
 }
 
-.syl-page-article.syl-device-pc
-  > div
-  blockquote:not(:first-child):not(:empty)
-  > p,
+.syl-page-article.syl-device-pc > div blockquote:not(:first-child):not(:empty) > p,
 .syl-page-article.syl-device-pc blockquote:not(:first-child):not(:empty) > p {
   color: #707070;
 }
@@ -683,11 +677,8 @@ article.syl-page-article .tt-video-box .video-fail {
   background: #f8f8f8;
 }
 
-.syl-page-article.syl-device-pc
-  .pgc-blockquote-quote:not(:first-child):not(:empty),
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-blockquote-quote:not(:first-child):not(:empty) {
+.syl-page-article.syl-device-pc .pgc-blockquote-quote:not(:first-child):not(:empty),
+.syl-page-article.syl-device-pc > div .pgc-blockquote-quote:not(:first-child):not(:empty) {
   border: none;
   margin-bottom: 18px !important;
   padding: 32px 0 6px 10px;
@@ -698,26 +689,15 @@ article.syl-page-article .tt-video-box .video-fail {
   background-size: 57px 57px;
 }
 
-.syl-page-article.syl-device-pc
-  .pgc-blockquote-quote:not(:first-child):not(:empty)
-  > p,
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-blockquote-quote:not(:first-child):not(:empty)
-  > p {
+.syl-page-article.syl-device-pc .pgc-blockquote-quote:not(:first-child):not(:empty) > p,
+.syl-page-article.syl-device-pc > div .pgc-blockquote-quote:not(:first-child):not(:empty) > p {
   color: #999;
 }
 
-.syl-page-article.syl-device-pc
-  .pgc-blockquote-quote:not(:first-child):not(:empty):after,
-.syl-page-article.syl-device-pc
-  .pgc-blockquote-quote:not(:first-child):not(:empty):before,
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-blockquote-quote:not(:first-child):not(:empty):after,
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-blockquote-quote:not(:first-child):not(:empty):before {
+.syl-page-article.syl-device-pc .pgc-blockquote-quote:not(:first-child):not(:empty):after,
+.syl-page-article.syl-device-pc .pgc-blockquote-quote:not(:first-child):not(:empty):before,
+.syl-page-article.syl-device-pc > div .pgc-blockquote-quote:not(:first-child):not(:empty):after,
+.syl-page-article.syl-device-pc > div .pgc-blockquote-quote:not(:first-child):not(:empty):before {
   display: none;
 }
 
@@ -733,9 +713,7 @@ article.syl-page-article .tt-video-box .video-fail {
   margin: 10px auto;
 }
 
-.syl-page-article.syl-device-pc
-  > div
-  img.syl-page-img:not(.ignore-img)[inline="1"],
+.syl-page-article.syl-device-pc > div img.syl-page-img:not(.ignore-img)[inline="1"],
 .syl-page-article.syl-device-pc img.syl-page-img:not(.ignore-img)[inline="1"] {
   display: inline-block;
   margin: 0 auto;
@@ -836,19 +814,14 @@ article.syl-page-article .tt-video-box .video-fail {
 }
 
 .syl-page-article.syl-device-pc .pgc-end-source:first-of-type:not(:empty),
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-end-source:first-of-type:not(:empty) {
+.syl-page-article.syl-device-pc > div .pgc-end-source:first-of-type:not(:empty) {
   position: relative;
   margin-top: 24px;
   padding-top: 24px;
 }
 
-.syl-page-article.syl-device-pc
-  .pgc-end-source:first-of-type:not(:empty):before,
-.syl-page-article.syl-device-pc
-  > div
-  .pgc-end-source:first-of-type:not(:empty):before {
+.syl-page-article.syl-device-pc .pgc-end-source:first-of-type:not(:empty):before,
+.syl-page-article.syl-device-pc > div .pgc-end-source:first-of-type:not(:empty):before {
   content: "";
   position: absolute;
   top: 0;
@@ -988,18 +961,6 @@ button {
   cursor: pointer;
 }
 
-b,
-em,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong {
-  font-weight: 400;
-}
-
 a,
 a:hover,
 del,
@@ -1016,8 +977,7 @@ keygen,
 legend,
 select,
 textarea {
-  font: 12px/1.14 PingFang SC, Hiragino Sans GB, Microsoft YaHei,
-    WenQuanYi Micro Hei, Helvetica Neue, Arial, sans-serif;
+  font: 12px/1.14 PingFang SC, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, Helvetica Neue, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   color: #333;
   outline: 0;
@@ -1037,639 +997,6 @@ a:hover {
 
 a:visited {
   color: #999;
-}
-
-@font-face {
-  font-family: yFont;
-  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/yFont.1e5b7edd.eot);
-  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/yFont.1e5b7edd.eot#iefix)
-      format("embedded-opentype"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/yFont.b730fd33.woff)
-      format("woff"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/yFont.48be14e8.ttf)
-      format("truetype"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/yFont.1f7de8ac.svg#yFont)
-      format("svg");
-}
-
-.y-icon {
-  position: relative;
-  display: inline-block;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  font-family: yFont;
-  font-size: 12px;
-  -webkit-font-smoothing: antialiased;
-  color: #fff;
-}
-
-.y-icon.icon-more:before {
-  content: "\e607";
-}
-
-.y-icon.icon-search {
-  font-size: 16px;
-  color: #ddd;
-}
-
-.y-icon.icon-search:before {
-  content: "\e60a";
-}
-
-.y-icon.icon-next-page:before {
-  content: "\e60f";
-}
-
-.y-icon.icon-trash:before {
-  content: "\e6eb";
-}
-
-@font-face {
-  font-family: ttIcons;
-  src: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/iconfont.e730e84a.eot#iefix)
-      format("embedded-opentype"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/iconfont.4403eb94.woff)
-      format("woff"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/fonts/iconfont.c382b016.ttf)
-      format("truetype"),
-    url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#sf3-scmcdn-tos.pstatp.com/obj/goofy/toutiao/toutiao_web_pc/svgs/iconfont.240ad844.svg#iconfont)
-      format("svg");
-}
-
-.bui-icon {
-  font-family: ttIcons !important;
-  font-size: 12px;
-  display: inline-block;
-  line-height: 1;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  text-transform: none;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.bui-icon.icon-close-small:before {
-  content: "\e61e";
-}
-
-.bui-icon.icon-close-big:before {
-  content: "\e6dd";
-}
-
-.bui-icon.icon-refresh:before {
-  content: "\e640";
-}
-
-.bui-icon.icon-nextpagetool:before {
-  content: "\e60f";
-}
-
-.bui-icon.icon-vtt:before {
-  content: "\e63e";
-}
-
-.bui-icon.icon-add_small:before {
-  content: "\e6ec";
-}
-
-.bui-icon.icon-favorite_line:before {
-  content: "\e64b";
-}
-
-.bui-icon.icon-report:before {
-  content: "\e64d";
-}
-
-.bui-icon.icon-arrow_down:before {
-  content: "\e607";
-}
-
-.bui-icon.icon-comment_anchor:before {
-  content: "\e649";
-}
-
-.bui-icon.icon-sina:before {
-  content: "\e6d5";
-}
-
-.bui-icon.icon-qzone:before {
-  content: "\e6d3";
-}
-
-.bui-icon.icon-weixin:before {
-  content: "\e6d7";
-}
-
-.bui-icon.icon-thumbsup_line:before {
-  content: "\e64a";
-}
-
-.bui-icon.icon-arrow_up_big:before {
-  content: "\e63f";
-}
-
-.bui-icon.icon-house:before {
-  content: "\e60d";
-}
-
-.bui-icon.icon-arrow_up_small:before {
-  content: "\e611";
-}
-
-.bui-icon.icon-enlarge:before {
-  content: "\e6e4";
-}
-
-.home-left-nav .tb-link {
-  color: #fff;
-  padding: 0 10px;
-  float: left;
-}
-
-.home-left-nav .download-app {
-  border-right: 1px solid #3a3a3a;
-}
-
-.left-nav {
-  position: relative;
-  height: 34px;
-  line-height: 34px;
-  background: none;
-  color: #fff;
-}
-
-.left-nav .nav-list {
-  padding: 0 20px;
-}
-
-.left-nav .nav-list .nav-item {
-  font-size: 13px;
-  font-weight: 500;
-  margin-right: 20px;
-  width: 26px;
-  white-space: nowrap;
-  float: left;
-}
-
-.left-nav .nav-list .nav-item .nav-link {
-  color: #fff;
-  border: none;
-  font-weight: 500;
-}
-
-.left-nav .nav-list .nav-item .nav-link:hover {
-  color: hsla(0, 0%, 100%, 0.9);
-}
-
-.left-nav .nav-list .nav-item.nav-more {
-  position: relative;
-  margin-right: 0;
-}
-
-.left-nav .nav-list .nav-item.nav-more:hover .nav-layer {
-  display: block;
-}
-
-.left-nav .nav-list .nav-item.nav-more:hover .icon-more {
-  -webkit-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
-
-.left-nav .nav-list .nav-item.nav-more .nav-layer {
-  display: none;
-  position: absolute;
-  top: 34px;
-  right: -32px;
-  width: 90px;
-  border: none;
-  color: #444;
-  z-index: 10;
-}
-
-.left-nav .nav-list .nav-item.nav-more .nav-more-item {
-  padding: 10px;
-  line-height: 10px;
-  text-align: center;
-  background: #fff;
-}
-
-.left-nav .nav-list .nav-item.nav-more .nav-more-item a,
-.left-nav .nav-list .nav-item.nav-more .nav-more-item a:visited {
-  color: #444;
-}
-
-.left-nav .nav-list .nav-item.nav-more .nav-more-item:hover {
-  background: #f4f5f6;
-}
-
-.right-nav .user-nav-list .tb-item {
-  position: relative;
-  float: left;
-  border-left: 1px solid #3a3a3a;
-}
-
-.right-nav .user-nav-list .tb-item:first-child {
-  border: none;
-}
-
-.right-nav .user-nav-list .tb-item .tb-link {
-  padding: 0 10px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.right-nav .user-nav-list .tb-item .tb-link:hover {
-  color: hsla(0, 0%, 100%, 0.9);
-}
-
-.right-nav .user-nav-list .tb-item.new-article {
-  padding: 0 6px;
-  background-color: #3a3a3a;
-}
-
-.right-nav .user-nav-list .tb-item.new-article:hover {
-  opacity: 0.9;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username {
-  position: relative;
-  text-align: center;
-  font-size: 14px;
-  color: #fff;
-  height: 34px;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username span {
-  color: #fff;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username:hover span {
-  opacity: 0.9;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username:hover .user-layer {
-  display: block;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-head {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 160px;
-  color: #fff;
-  padding-left: 20px;
-  padding-right: 14px;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-head .user-image {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 11px;
-  margin-top: -2px;
-  background-color: #efefef;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-head img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-layer {
-  display: none;
-  position: absolute;
-  top: 34px;
-  right: 0;
-  border: 1px solid #d9d9d9;
-  background: #fff;
-  z-index: 22;
-  font-size: 14px;
-  width: 130px;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-layer li:last-child {
-  border-top: 1px solid #d9d9d9;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-layer:before {
-  content: "";
-  position: absolute;
-  border: 8px solid transparent;
-  border-bottom-color: #d9d9d9;
-  top: -17px;
-  right: 57px;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-layer:after {
-  content: "";
-  position: absolute;
-  border: 8px solid transparent;
-  border-bottom-color: #fff;
-  top: -16px;
-  right: 57px;
-  z-index: 9;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .username .user-layer .layer-item {
-  cursor: pointer;
-  display: block;
-  width: auto;
-  height: 42px;
-  line-height: 42px;
-  color: #999;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-}
-
-.right-nav
-  .user-nav-list
-  .tb-item.userbox
-  .username
-  .user-layer
-  .layer-item:hover {
-  background-color: #f2f2f5;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .nav-login {
-  position: relative;
-  background-color: #ed4040;
-  color: #fff;
-  width: 68px;
-  text-align: center;
-  z-index: 10;
-}
-
-.right-nav .user-nav-list .tb-item.userbox .nav-login a {
-  color: #fff;
-}
-
-.right-nav .user-nav-list .tb-item.more .layer {
-  visibility: hidden;
-  position: absolute;
-  border: 1px solid #d9d9d9;
-  background: #fff;
-  z-index: 20;
-  font-size: 14px;
-  right: 0;
-  width: 116px;
-}
-
-.right-nav .user-nav-list .tb-item.more .layer .layer-item {
-  cursor: pointer;
-  display: block;
-  width: auto;
-  height: 42px;
-  line-height: 42px;
-  color: #999;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-align: center;
-}
-
-.right-nav .user-nav-list .tb-item.more .layer .layer-item:hover {
-  background-color: #f2f2f5;
-}
-
-.right-nav .user-nav-list .tb-item.more:hover .layer {
-  visibility: visible;
-}
-
-.feedback {
-  position: fixed;
-  right: 0;
-  top: 30px;
-  z-index: 30;
-  background: #fff;
-  display: block;
-}
-
-.feedback .dialog-header {
-  border: 1px solid #ddd;
-  border-top: 2px solid #f44d4d;
-  padding: 9px 16px;
-}
-
-.feedback .dialog-header h3 {
-  color: #f44d4d;
-  font-size: 20px;
-}
-
-.feedback .dialog-inner {
-  border: 1px solid #ddd;
-  border-top: none;
-  padding-top: 15px;
-}
-
-.feedback .feedback_panel {
-  width: 320px;
-  padding: 0 20px 10px;
-  font-size: 13px;
-  line-height: 20px;
-}
-
-.feedback .content,
-.feedback .email {
-  border-radius: 4px;
-  border: 1px solid #d7d7d7;
-  color: #5e5e5e;
-  height: 18px;
-  width: 300px;
-  outline: none;
-  background: #f2f2f5;
-  padding: 5px 10px;
-  resize: none;
-}
-
-.feedback .content:focus,
-.feedback .email:focus {
-  border-color: #e4413a;
-  -webkit-box-shadow: 0 0 2px 0 #ccc;
-  box-shadow: 0 0 2px 0 #ccc;
-}
-
-.feedback .submit-btn {
-  height: auto;
-  padding: 8px 30px;
-  line-height: 18px;
-  font-size: 16px;
-  background-color: #f44d4d;
-  border-radius: 3px;
-  color: #fff;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.feedback .submit-btn.disabled,
-.feedback .submit-btn:hover {
-  background-color: #c52424;
-}
-
-.feedback .error {
-  margin-left: 5px;
-  color: #e4413a;
-}
-
-.feedback .input-group {
-  margin-bottom: 10px;
-  position: relative;
-}
-
-.feedback .label {
-  margin-bottom: 5px;
-  color: #333;
-}
-
-.feedback .close {
-  position: absolute;
-  right: 0;
-  top: 10px;
-  color: #333;
-  cursor: pointer;
-}
-
-.middlebar {
-  width: 100%;
-  height: 58px;
-  background: #fff;
-  -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.12);
-}
-
-.middlebar .middlebar-inner {
-  margin: 0 auto;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -moz-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.middlebar .middlebar-inner .middlebar-left {
-  line-height: 58px;
-}
-
-.middlebar .middlebar-inner .middlebar-left .logo-link {
-  float: left;
-}
-
-.middlebar .middlebar-inner .middlebar-left .logo-link > img {
-  width: 108px;
-  height: 27px;
-  vertical-align: middle;
-}
-
-.middlebar .middlebar-inner .middlebar-left .chinese-tag {
-  font-size: 16px;
-  margin-left: 20px;
-  float: left;
-}
-
-.middlebar .middlebar-inner .middlebar-left .chinese-tag a {
-  color: #444;
-}
-
-.middlebar .middlebar-inner .middlebar-left .chinese-tag a:hover {
-  color: #406599;
-}
-
-.middlebar .middlebar-inner .middlebar-left .chinese-tag a:active {
-  color: #444;
-}
-
-.middlebar .middlebar-inner .middlebar-left .chinese-tag span {
-  color: #999;
-}
-
-.middlebar .middlebar-inner .search {
-  width: 340px;
-}
-
-.middlebar .middlebar-inner .search .input-group {
-  height: 38px;
-  position: relative;
-  border: 1px solid #e8e8e8;
-  padding: 0 14px;
-  background-color: #f5f6f7;
-  border-radius: 4px;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.middlebar .middlebar-inner .search .input-text {
-  border: none;
-  color: #444;
-  font-size: 14px;
-  line-height: 20px;
-  width: 280px;
-  outline: none;
-  padding: 9px 10px 9px 0;
-  background: #f5f6f7;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-.middlebar .middlebar-inner .search .input-text::-webkit-input-placeholder {
-  color: #dfdfdf;
-}
-
-.middlebar .middlebar-inner .search .input-text:-moz-placeholder,
-.middlebar .middlebar-inner .search .input-text::-moz-placeholder {
-  color: #dfdfdf;
-}
-
-.middlebar .middlebar-inner .search .input-text:-ms-input-placeholder {
-  color: #dfdfdf;
-}
-
-.middlebar .middlebar-inner .search .btn-submit {
-  display: block;
-  border-left: 0;
-}
-
-.middlebar .middlebar-inner .search .btn-submit button {
-  line-height: 38px;
-  background: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
-
-.middlebar .middlebar-inner .tab .tab-item {
-  margin-left: 30px;
-  display: inline-block;
-  font-size: 16px;
-  line-height: 56px;
-  border-bottom: 2px solid transparent;
-}
-
-.middlebar .middlebar-inner .tab .tab-item a {
-  color: #444;
-}
-
-.middlebar .middlebar-inner .tab .tab-item-active {
-  border-bottom: 2px solid #f85959;
 }
 
 .search-wrapper {
@@ -1740,28 +1067,6 @@ a:visited {
   white-space: nowrap;
   cursor: pointer;
   outline: 0;
-}
-
-.toutiao-header {
-  width: 100%;
-  background: #fff;
-  margin-bottom: 16px;
-}
-
-.toutiao-header .topbar {
-  height: 34px;
-  line-height: 34px;
-  background: #222;
-  font-size: 14px;
-  color: #fff;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -moz-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -ms-flex-wrap: wrap-reverse;
-  flex-wrap: wrap-reverse;
 }
 
 .channel {
@@ -1994,107 +1299,6 @@ a:visited {
   }
 }
 
-.msg-wrapper .msgAlert-place {
-  height: 32px;
-}
-
-.msg-wrapper .msg-alert {
-  position: relative;
-  height: 32px;
-  line-height: 32px;
-  font-size: 14px;
-  color: #fff;
-  text-align: center;
-  background-color: #60a3f5;
-  background-color: rgba(96, 163, 245, 0.85);
-  z-index: 20;
-  -webkit-transition-property: height;
-  -moz-transition-property: height;
-  transition-property: height;
-  -webkit-transition-delay: 0;
-  -moz-transition-delay: 0;
-  transition-delay: 0;
-  -webkit-transition-duration: 0.5s;
-  -moz-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-
-.msg-wrapper .msg-alert.msg-alert-fixed {
-  width: 660px;
-  position: fixed;
-  top: 0;
-  margin-top: 0;
-}
-
-.msg-wrapper .msg-alert.msg-alert-hidden {
-  height: 0;
-}
-
-.msg-wrapper .msg-alert.msg-alert-hidden span {
-  display: none !important;
-}
-
-.msg-wrapper .msg-alert span {
-  cursor: pointer;
-  min-width: 500px;
-  display: inline-block;
-}
-
-.msg-wrapper .msg-alert .icon-close-small {
-  position: absolute;
-  right: 0;
-  font-size: 15px;
-  color: #fff;
-  cursor: pointer;
-  z-index: 10;
-  padding: 8.5px;
-}
-
-.action-dislike {
-  position: relative;
-  z-index: 2;
-  color: transparent;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  overflow: hidden;
-  padding-right: 20px;
-  padding-left: 8px;
-  -webkit-transition: width 0.3s ease;
-  -moz-transition: width 0.3s ease;
-  transition: width 0.3s ease;
-  white-space: nowrap;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.action-dislike .icon-close-small {
-  position: absolute;
-  top: 2px;
-  right: 0;
-  font-size: 16px;
-  color: #ddd;
-}
-
-.action-dislike:hover {
-  background-color: #f85959;
-  border-radius: 4px;
-  color: #fff;
-  font-size: 12px;
-  width: 72px;
-}
-
-.action-dislike:hover .icon-close-small,
-.toast {
-  color: #fff;
-}
-
 .toast {
   position: fixed;
   top: 50%;
@@ -2116,516 +1320,6 @@ a:visited {
 
 .toast.fade {
   opacity: 0;
-}
-
-.emoji {
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 20px;
-}
-
-.emoji,
-.emoji-name {
-  display: inline-block;
-}
-
-.emoji-name {
-  font-size: 0;
-  width: 2px;
-}
-
-.emoji_1_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_1_smile@3x.png);
-}
-
-.emoji_2_kiss {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_2_kiss@3x.png);
-}
-
-.emoji_3_daze {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_3_daze@3x.png);
-}
-
-.emoji_4_smoke {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_4_smoke@3x.png);
-}
-
-.emoji_5_pick_nose {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_5_pick_nose@3x.png);
-}
-
-.emoji_6_cry {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_6_cry@3x.png);
-}
-
-.emoji_7_anger {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_7_anger@3x.png);
-}
-
-.emoji_8_laugh {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_8_laugh@3x.png);
-}
-
-.emoji_9_sleep {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_9_sleep@3x.png);
-}
-
-.emoji_10_shy {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_10_shy@3x.png);
-}
-
-.emoji_11_naughty {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_11_naughty@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 22px;
-}
-
-.emoji_12_dizzy {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_12_dizzy@3x.png);
-}
-
-.emoji_13_stunned {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_13_stunned@3x.png);
-}
-
-.emoji_14_shut_up {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_14_shut_up@3x.png);
-}
-
-.emoji_15_wit {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_15_wit@3x.png);
-}
-
-.emoji_16_attention {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_16_attention@3x.png);
-  padding-left: 23px;
-}
-
-.emoji_16_attention,
-.emoji_17_hand_sample {
-  background-size: auto 20px;
-  padding-top: 20px;
-}
-
-.emoji_17_hand_sample {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_17_hand_sample@3x.png);
-  padding-left: 22px;
-}
-
-.emoji_18_ye {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_18_ye@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 21px;
-}
-
-.emoji_19_distress_situation {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_19_distress_situation@3x.png);
-}
-
-.emoji_20_play_face {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_20_play_face@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 22px;
-}
-
-.emoji_21_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_21_smile@3x.png);
-}
-
-.emoji_22_yawn {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_22_yawn@3x.png);
-}
-
-.emoji_23_surprise {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_23_surprise@3x.png);
-}
-
-.emoji_24_take_heart {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_24_take_heart@3x.png);
-}
-
-.emoji_25_sleepy {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_25_sleepy@3x.png);
-}
-
-.emoji_26_what {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_26_what@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 22px;
-}
-
-.emoji_27_sobbing {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_27_sobbing@3x.png);
-}
-
-.emoji_28_handclap {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_28_handclap@3x.png);
-}
-
-.emoji_29_cool {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_29_cool@3x.png);
-}
-
-.emoji_30_titter {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_30_titter@3x.png);
-}
-
-.emoji_31_lightning_strike {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_31_lightning_strike@3x.png);
-}
-
-.emoji_32_meditation {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_32_meditation@3x.png);
-}
-
-.emoji_33_vomiting_blood {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_33_vomiting_blood@3x.png);
-}
-
-.emoji_34_acting_cute {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_34_acting_cute@3x.png);
-}
-
-.emoji_35_quietly {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_35_quietly@3x.png);
-}
-
-.emoji_36_hum {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_36_hum@3x.png);
-}
-
-.emoji_37_khan {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_37_khan@3x.png);
-}
-
-.emoji_38_forced_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_38_forced_smile@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 24px;
-}
-
-.emoji_39_haze {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_39_haze@3x.png);
-}
-
-.emoji_40_smirk {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_40_smirk@3x.png);
-}
-
-.emoji_41_cool {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_41_cool@3x.png);
-}
-
-.emoji_42_bad_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_42_bad_smile@3x.png);
-}
-
-.emoji_43_crazy {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_43_crazy@3x.png);
-}
-
-.emoji_44_tears {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_44_tears@3x.png);
-}
-
-.emoji_45_money {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_45_money@3x.png);
-}
-
-.emoji_46_kiss {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_46_kiss@3x.png);
-}
-
-.emoji_47_fear {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_47_fear@3x.png);
-}
-
-.emoji_48_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_48_smile@3x.png);
-}
-
-.emoji_49_injustice {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_49_injustice@3x.png);
-}
-
-.emoji_50_their {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_50_their@3x.png);
-}
-
-.emoji_51_focus {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_51_focus@3x.png);
-}
-
-.emoji_52_like {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_52_like@3x.png);
-}
-
-.emoji_53_handclap {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_53_handclap@3x.png);
-}
-
-.emoji_54_3Q {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_54_3Q@3x.png);
-}
-
-.emoji_55_kiss {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_55_kiss@3x.png);
-}
-
-.emoji_56_household_cleanser {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_56_household_cleanser@3x.png);
-}
-
-.emoji_57_666 {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_57_666@3x.png);
-}
-
-.emoji_58_rose {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_58_rose@3x.png);
-}
-
-.emoji_59_cucumber {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_59_cucumber@3x.png);
-}
-
-.emoji_60_beer {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_60_beer@3x.png);
-}
-
-.emoji_61_distress_situation {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_61_distress_situation@3x.png);
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 22px;
-}
-
-.emoji_62_injustice {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_62_injustice@3x.png);
-}
-
-.emoji_63_lick_screen {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_63_lick_screen@3x.png);
-}
-
-.emoji_64_despise {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_64_despise@3x.png);
-}
-
-.emoji_65_kiss {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_65_kiss@3x.png);
-}
-
-.emoji_66_bye {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_66_bye@3x.png);
-}
-
-.emoji_67_erkang {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_67_erkang@3x.png);
-}
-
-.emoji_67_erkang,
-.emoji_68_hug {
-  background-size: auto 20px;
-  padding-top: 20px;
-  padding-left: 23px;
-}
-
-.emoji_68_hug {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_68_hug@3x.png);
-}
-
-.emoji_69_hitler {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_69_hitler@3x.png);
-}
-
-.emoji_70_zhoudongyu_gaze {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_70_zhoudongyu_gaze@3x.png);
-}
-
-.emoji_71_masichun_smile {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_71_masichun_smile@3x.png);
-}
-
-.emoji_72_dogo {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_72_dogo@3x.png);
-}
-
-.emoji_73_cat {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_73_cat@3x.png);
-}
-
-.emoji_74_2ha {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_74_2ha@3x.png);
-}
-
-.emoji_75_dogo {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_75_dogo@3x.png);
-}
-
-.emoji_76_bear {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_76_bear@3x.png);
-}
-
-.emoji_77_skeleton {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_77_skeleton@3x.png);
-}
-
-.emoji_78_black_face {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_78_black_face@3x.png);
-}
-
-.emoji_79_eat_melon {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_79_eat_melon@3x.png);
-}
-
-.emoji_80_green_hat {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_80_green_hat@3x.png);
-}
-
-.emoji_81_sweat {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_81_sweat@3x.png);
-}
-
-.emoji_82_lear_ropes {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_82_lear_ropes@3x.png);
-}
-
-.emoji_83_frown {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_83_frown@3x.png);
-}
-
-.emoji_84_wipe_sweat {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_84_wipe_sweat@3x.png);
-}
-
-.emoji_85_redface {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_85_redface@3x.png);
-}
-
-.emoji_86_orz {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_86_orz@3x.png);
-}
-
-.emoji_87_makeface {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_87_makeface@3x.png);
-}
-
-.emoji_88_intensity {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_88_intensity@3x.png);
-}
-
-.emoji_89_ruhua {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_89_ruhua@3x.png);
-}
-
-.emoji_90_spit {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_90_spit@3x.png);
-}
-
-.emoji_91_surprise {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_91_surprise@3x.png);
-}
-
-.emoji_92_knock {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_92_knock@3x.png);
-}
-
-.emoji_93_refuel {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_93_refuel@3x.png);
-}
-
-.emoji_94_rainbow {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_94_rainbow@3x.png);
-}
-
-.emoji_95_bigcry {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_95_bigcry@3x.png);
-}
-
-.emoji_96_fingerheart {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_96_fingerheart@3x.png);
-}
-
-.emoji_97_refuel {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_97_refuel@3x.png);
-}
-
-.emoji_98_fist {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_98_fist@3x.png);
-}
-
-.emoji_99_OK {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_99_OK@3x.png);
-}
-
-.emoji_100_highfive {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_100_highfive@3x.png);
-}
-
-.emoji_101_left {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_101_left@3x.png);
-}
-
-.emoji_102_shakehand {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_102_shakehand@3x.png);
-}
-
-.emoji_103_18 {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_103_18@3x.png);
-}
-
-.emoji_104_knife {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_104_knife@3x.png);
-}
-
-.emoji_105_V5 {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_105_V5@3x.png);
-}
-
-.emoji_106_awesome {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_106_awesome@3x.png);
-}
-
-.emoji_107_heart {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_107_heart@3x.png);
-}
-
-.emoji_108_broken_heart {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_108_broken_heart@3x.png);
-}
-
-.emoji_109_shit {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_109_shit@3x.png);
-}
-
-.emoji_110_gifts {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_110_gifts@3x.png);
-}
-
-.emoji_111_cake {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_111_cake@3x.png);
-}
-
-.emoji_112_flower {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_112_flower@3x.png);
-}
-
-.emoji_113_lookat {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_113_lookat@3x.png);
-}
-
-.emoji_114_bomb {
-  background-image: url(https://www.icystal.top/wp-content/uploads/2018/08/logomini.png#s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_114_bomb@3x.png);
 }
 
 .ugc-mode {
@@ -2869,30 +1563,6 @@ a:visited {
   margin-left: 8px;
 }
 
-.avatar-style-0 {
-  background-color: #ff9090 !important;
-}
-
-.avatar-style-1 {
-  background-color: #90ccff !important;
-}
-
-.avatar-style-2 {
-  background-color: #bfa1d0 !important;
-}
-
-.avatar-style-3 {
-  background-color: #80c184 !important;
-}
-
-.avatar-style-4 {
-  background-color: #e7ad90 !important;
-}
-
-.avatar-style-5 {
-  background-color: #ccc !important;
-}
-
 .tag-style-hot {
   border-color: #ed4040 !important;
   color: #ed4040 !important;
@@ -3019,47 +1689,20 @@ a:visited {
   color: #406599;
 }
 
-.refresh-mode {
-  position: relative;
-  text-align: center;
-  font-size: 14px;
-  color: #2a90d7;
-  height: 32px;
-  line-height: 32px;
-  background: rgba(41, 144, 215, 0.08);
-  border: 1px solid rgba(41, 144, 215, 0.5);
-  border-radius: 4px;
-  cursor: pointer;
+.feed-list {
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  overflow-y: auto;
+  width: 660px;
+  position: fixed;
 }
-
-.refresh-mode:before {
-  position: absolute;
-  top: -2px;
-  left: 0;
-  content: "";
-  width: 100%;
-  height: 1px;
-  background-color: #fff;
+.feed-list::-webkit-scrollbar {
+  display: none;
 }
-
-.refresh-mode:hover {
-  background: rgba(41, 144, 215, 0.2);
-}
-
-.refresh-mode .icon-refresh {
-  color: #2a90d7;
-}
-
 .feedbox-wrapper {
   width: 660px;
   margin: 0 auto;
   margin-top: 60px;
-  height: calc(100vh - 80px);
-  overflow: hidden;
-  overflow-y: auto;
-}
-.feedbox-wrapper::-webkit-scrollbar{
-  display:none;
 }
 
 .feedbox-wrapper .link {
@@ -3090,7 +1733,6 @@ a:visited {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .feedbox-wrapper .img-wrap {
   position: relative;
   display: inline-block;
@@ -3395,7 +2037,7 @@ a:visited {
 }
 .hotnews {
   /* min-height: 240px; */
-  opacity:1;
+  opacity: 1;
 }
 
 .isFixed {
@@ -3583,7 +2225,7 @@ a:visited {
   width: 220px;
 }
 
-#search-tab{
+#search-tab {
   transition: all 0.5s;
 }
 
@@ -3721,4 +2363,78 @@ a:visited {
 }
 .params input {
   font-size: 14px;
+}
+.popbox {
+  margin: 0px auto;
+  width: 1010px;
+
+  box-shadow: 0px 0px 50px 0px #000;
+  padding: 80px;
+  font-size: 24px;
+  position: fixed;
+  display: block;
+  background: #eee;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+#close:hover {
+  color: red;
+  border-color: red;
+  background: rgb(255 0 0 / 50%);
+}
+#close {
+  cursor: pointer;
+  font-size: 48px;
+  height: 50px;
+  width: 50px;
+  top: 0px;
+  margin-left: 1090px;
+  z-index: 10000000;
+  color: white;
+  text-align: center;
+  line-height: 45px;
+  background: rgb(255 253 253 / 50%);
+  position: fixed;
+}
+#popup {
+  z-index: 100000;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+#article img {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
+  max-width: 1000px;
+}
+h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#article {
+  font-size: 18px;
+}
+#article p {
+  margin: 18px auto;
+  font-size: 18px;
+  line-height: 32px;
+}
+#article span, .img_wrapper
+ {
+  font-size: 16px;
+  text-align: center;
+  display: block;
+}
+#insertme {
+  font-size: 14px;
+  padding-top: 10px;
+  text-align: center;
 }

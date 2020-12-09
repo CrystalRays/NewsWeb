@@ -1,14 +1,24 @@
 $=function(data){return document.querySelector(data);};
 
+newsposition=0
 window.onload=function(){
     var dp1=datepicker();
     dp1.init("#filter-end-date");
     var dp2=datepicker();
     dp2.init("#filter-begin-date");
     category=window.location.hash.substr(1);
-    chgcate($("a[name="+category?category:"suggest"+"]"));
+    chgcate($("a[name="+(category?category:"suggest")+"]"));
     cookielogin();
-    
+    // console.log(height,"feed的计算高度")
+    $(".feed-list").onscroll = function(){
+        pos=$(".feed-list").scrollTop+$(".feed-list").offsetHeight-$(".feed-list").scrollHeight
+        // console.log(pos)
+        if(pos<=5 && pos>=-5){
+            // console.log("load")
+            category=window.location.hash.substr(1);
+            loadNews(category?category:"suggest",newsposition,10);
+        }
+    }
 }
 
 function paneclose(){
@@ -267,6 +277,21 @@ loginanime=function(){
     $("#logout-button").style.opacity="0";
     setTimeout(() => {
         $("#user-avator").setAttribute("src",userdata.avator);
+        if(userdata.tags){
+            userdata.tags.split(",").forEach(element => {
+                var newli=$('li').cloneNode(true);
+                var tag=element.replaceAll("'","")
+                newli.querySelector("a").name="tag_"+tag;
+                newli.querySelector("a").classList.add("tags");
+                newli.querySelector("a").setAttribute("tag","#tag_"+tag);
+                newli.querySelector("a").innerHTML=tag;
+                $(".channel ul").insertBefore(newli,$(".channel-more"));
+                $(".channel-more").style.display="None";
+            });
+        }
+        else{
+            $(".channel-more").setAttribute("onclick","paneopen(4)");
+        }
         $("#logout-button").style.display="";
         $("#usercenter-button").style.display="";
         $("#register-button").style.display="none";
@@ -316,6 +341,9 @@ login=function (){
                 $("input[name='password']").style.background="#ffd1d1";
                 $("input[name='password']").className="inputerr";
             }
+            else{
+                alert(res.data.detail);
+            }
         }
     })(res)) // JSON from `response.json()` call
     
@@ -336,7 +364,11 @@ logout=function(){
         $("#user-avator").style.transition="all 0.5s";
         $("#user-avator").setAttribute("src","/image/user.svg");
         setTimeout(() => {
-            
+            document.querySelectorAll(".tags").forEach(element=>{
+                element.remove();
+            })
+            $(".channel-more").setAttribute("onclick","panelopen(0)");
+            $(".channel-more").style.display="";
             $("#logout-button").style.display="none";
             $("#usercenter-button").style.display="none";
             $("#register-button").style.display="";
@@ -396,7 +428,7 @@ chgpwd=function(){
         auth(
             userdata["token"],
             function() {
-                postData('/user/chgpwd?token='+userdata["token"], {password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)},{'content-type': 'application/json'}).then(
+                postData('/user/chgpwd?token='+userdata["token"], JSON.stringify({password:hex_md5($("input[name='password']").value),repasswd:hex_md5($("input[name='repasswd']").value)}),{'content-type': 'application/json'}).then(
                     data=>function(){
                         if(data.status==200){
                             alert("修改成功，请重新登录");
@@ -449,7 +481,10 @@ chgavator=()=>{
     }
    var formData = new FormData();
    var fileField =$('#uploadAvator');
-   
+   if(!fileField.files[0]){
+       alert("请选择图像文件");
+       return
+   }
    formData.append('file', fileField.files[0]);
    
    postData('/user/uploadAvator?token='+userdata.token,formData)
@@ -469,16 +504,18 @@ chgavator=()=>{
    })
 }
 
-newsposition=0
  
 chgcate=(current)=>{
     $(".channel-item.active").classList.remove("active");
     current.classList.add("active");
+    newsposition=0;
+    $(".feed-list").innerHTML=" <div id=\"insertme\" >正在加载</div>";
     if(current.id=="search-tab"){
         current.style.height="";
     }
-    else{
+    else if(current.parentNode.className!="channel-more"){
         $("#search-tab").style.height="0px";
+        loadNews(current.name?current.name:"suggest",newsposition,20);
     }
 }
 
@@ -487,48 +524,112 @@ document.querySelectorAll(".channel-item").forEach(current=>{
 })
 
 fadeinanime=(element)=>{
-    $("#login-button").style.opacity="0";
-    $("#login-button").style.display="";
+    element.style.opacity="0";
+    element.style.display="";
     setTimeout(() => {
-        $("#login-button").style.transition="all 0.5s";
-        $("#login-button").style.opacity="1";
+        element.style.transition="all 0.5s";
+        element.style.opacity="1";
     }, 10);
+}
+
+fadeoutanime=(element)=>{
+    element.style.transition="all 0.5s";
+    element.style.opacity="0";
+    setTimeout(() => {
+        element.style.display="none";
+    }, 1000);
 }
 
 loadNews=(category,start,num)=>{
     token=""
     if(userdata!=null){
-        token=user.token
+        token=userdata.token
     }
-    getData("/news/index?category=${category}&start=${start}&num=${num}&token=${token}")
-    .then(list=>{
-        list.forEach(each => {
-            //return id,title,time,tag,content,img,author
-            if(each.img==""){
-                var newdiv= $(".no-mode").cloneNode(true);
+    (function (){
+        if( category.search("tag_")==0){
+            return getData("/news/tag?tag="+category.substr(4)+"&start="+start+"&num="+num+"&token="+token)
+        }else if(category=="search"){
+            return getData("/news/search?s="+encodeURIComponent($(".search-input").value)+"&start="+start+"&num="+num+"&token="+token)
+        }
+        else{
+            return getData("/news/index?category="+category+"&start="+start+"&num="+num+"&token="+token)
+        }
+    })()
+    .then(res=>{
+        if(res.status==401){
+            alert("请先登录");
+        }
+        else if(res.status==400){
+            alert(res.data.detail);
+        }
+            else if(res.status==200){
+            res.data.forEach(each => {
+                //return id,title,time,category,summary,img,author,hit
+                if(!each.img){
+                    var newdiv= $(".no-mode").cloneNode(true);
+                    
+                }
+                else{
+                    var newdiv= $(".ugc-mode").cloneNode(true);
+                    newdiv.querySelector(".img-wrap img").src=each.img;
+                    newdiv.querySelector(".ugc-mode-content").innerHTML=each.summary;
+                }
+                newdiv.setAttribute("onclick","loadArticle("+each.id+")");
+                newdiv.querySelector(".title-box").innerHTML=each.title;
+                newdiv.querySelector(".source").innerHTML="&nbsp;"+each.author+"&nbsp;⋅";
+                newdiv.querySelector(".time").innerHTML="&nbsp;⋅&nbsp;"+each.time;
+                newdiv.querySelector(".tag").innerHTML=each.category;
+                newdiv.querySelector(".hit").innerHTML="&nbsp;阅读&nbsp;"+each.hit;
+                // document.insertBefore(newdiv,$("#insertme"))
+                $(".feed-list").insertBefore(newdiv,$("#insertme"));
+                fadeinanime(newdiv);
                 
-            }
-            else{
-                var newdiv= $(".ugc-mode").cloneNode(true);
-                newdiv.querySelector(".img-wrap img").src=each.img;
-                newdiv.querySelector(".ugc-mode-content").innerText=each.content
-            }
-            newdiv.querySelector(".title-box")=each.title;
-            newdiv.querySelector(".source")=each.author;
-            newdiv.querySelector(".time")=each.time;
-            newdiv.querySelector(".tag")=each.tag;
-            document.insertBefore(newdiv,$(".insertme"))
-            $(".feed-list").insertBefore(newdiv,$(".insertme"));
-            fadeinanime(newdiv);
-        })
+            })
+            newsposition+=num
+        }
+        else{
+            alert("未知错误");
+        }
     })
 }
+
+//获取容器父元素
 
 loadLikes=(label,num)=>{
 
 }
 
 
-loadArticles=()=>{
-
+loadArticle=(nid)=>{
+    token=""
+    if(userdata!=null){
+        token=userdata.token
+    }
+    getData("/news/article?id="+nid+"&token="+token)
+    .then(res=>{
+        if(res.status==400){
+            alert(res.data.detail);
+        }
+        else if(res.status==401){
+            alert("登录失效，请重新登录");
+        }
+        else if(res.status==200){
+            $(".popbox h1").innerHTML=res.data.title;
+            $(".popbox center").innerHTML=res.data.author+"&nbsp;⋅&nbsp;"+res.data.time+"&nbsp;⋅&nbsp;热度 "+res.data.hit
+            $("#article").innerHTML=res.data.context;
+            fadeinanime($("#popup"))
+        }
+        else{
+            alert("未知错误")
+        }
+    })
 }
+
+$("#close").addEventListener("click",()=>{
+    fadeoutanime($("#popup"));
+})
+
+$(".search-btn").addEventListener("click",()=>{
+    $("a[name=search]").click()
+    loadNews("search",0,20);
+})
