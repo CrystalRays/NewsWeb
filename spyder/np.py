@@ -9,15 +9,6 @@ import sys
 import jieba
 import jieba.analyse
 import pymysql
-
-if __name__.split(".")[0]=="spyder":
-    from backend.config import * 
-else:
-    from config import *
-
-
-db = pymysql.Connect(host=db_host, user=db_user, passwd=db_passwd, db=db_db,charset='utf8')
-
 def tags_update(url,id):
     cur=db.cursor()
     r=requests.get(url)
@@ -90,12 +81,12 @@ def news_downloads(urls):
         s="//n\.sinaimg\.cn/spider.*?\.jpg"
         pattern=re.compile(s,re.S)
         res=re.findall(pattern,x)
-        for r in res:
-            f=requests.get("https:"+r)
+        for r1 in res:
+            f=requests.get("https:"+r1)
             base64_data = base64.b64encode(f.content)
             s = base64_data.decode()
             s="data:image/jpeg;base64,"+s#将文章内的图片格式下载后转换为base64模式存入文章中
-            x=x.replace(r,s) #爬取文章内容 
+            x=x.replace(r1,s) #爬取文章内容 
         x=x[36:len(x)-8]
         html=etree.HTML(r.text)
         try:
@@ -140,14 +131,32 @@ def cs(r):
         #news_update_context(url[0])#更新文本内图片内容
         cur.execute('select n_id from news where url like %s',url)#关键词提取
         resl=cur.fetchone()
-        res=int(resl[0])
-        cur.execute('select * from tags where article=%s',(res,))
-        rest=cur.fetchone()
-        if rest==None:
-            tags_update(url[0],res)
+        try:
+            res=int(resl[0])
+            cur.execute('select * from tags where article=%s',(res,))
+            rest=cur.fetchone()
+            if rest==None:
+                tags_update(url[0],res)
+        except:
+            print(url)
 def main():
-    #s=['https://mil.news.sina.com.cn/2020-12-05/doc-iiznezxs5352974.shtml']
-    #news_downloads(s)
+    cur=db.cursor()
+    s="show tables"
+    if cur.execute(s):
+        pass
+    else:
+        with open("{}/mysql_sina_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
+        with open("{}/mysql_news_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
+        with open("{}/mysql_user_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
+        with open("{}/mysql_useroperate_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
+        with open("{}/mysql_tags_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
+        with open("{}/mysql_userhistory_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+                    cur.execute(create_sql.read())
     r = requests.get('http://mil.news.sina.com.cn/roll/index.d.html?cid=57918&page=1')
     cs(r)#爬取导航页面
     r = requests.get('http://mil.news.sina.com.cn/roll/index.d.html?cid=57919&page=1')
@@ -155,19 +164,12 @@ def main():
     r = requests.get('http://mil.news.sina.com.cn/roll/index.d.html?cid=57920&page=1')
     cs(r)
     news_update_time()#更新time为空的的数据集
-    # cur=db.cursor()
-    # for i in range(770):
-    #     cur.execute('select url from news where n_id=%s',(i,))
-    #     try:
-    #         resl=cur.fetchone()
-    #         tags_update(resl[0],i)
-    #     except:
-    #         print(i)
-    db.close()
 if __name__=='__main__':
-    # print("请输入要连接的数据库ip,用户名,密码以及数据库名称:localhost user password databasename:%s %s %s %s",)
+    host,db_user,db_passwd,db_name=input("请输入要连接的数据库主机,用户名,密码以及数据库名称:localhost user password databasename:",).split()
+    db=pymysql.connect(host=host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
     try:
         main()
     except KeyboardInterrupt:
         sys.stderr.write("\rCtrl-C captured,Exiting!\n")
+        db.close()
         sys.exit()
