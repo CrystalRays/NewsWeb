@@ -20,8 +20,9 @@
 
 ### 前端
 
-#### 用户
+- [x] 前端模板化
 
+#### 用户
 
 - [x] 注册
 
@@ -55,6 +56,10 @@
 - [ ] PushState
 
 - [ ] 评论
+
+- [ ] 点赞
+
+- [ ] 收藏
 
 ### 后端
 
@@ -102,6 +107,7 @@
 ### 本地使用
 
 ```shell
+pip install -r requirements.txt
 python3 local.py
 ```
 
@@ -122,16 +128,14 @@ create user `example`@`%` identified by 'password';
 grant all privileges on `example`.* to `example`@`%` identified by 'password';
 ```
 
-运行自动部署脚本
+运行脚本
 ```python
-python xxx.py
+python3 np.py
 ```
 
 #### 后端服务器
 
 将backend目录复制到后端服务器中
-
-在config.py中配置数据库服务器ip、用户名、密码、要连接的数据库和后端服务器ip、端口;
 
 运行
 ```shell

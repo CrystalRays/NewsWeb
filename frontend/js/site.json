@@ -1,0 +1,47 @@
+{
+  "title": "今日军事",
+  "category": [
+    {
+      "name": "political",
+      "desc": "军政防务"
+    },
+    {
+      "name": "movement",
+      "desc": "战事行动"
+    },
+    {
+      "name": "edu",
+      "desc": "院校教育"
+    },
+    {
+      "name": "tech",
+      "desc": "军工科技"
+    },
+    {
+      "name": "theory",
+      "desc": "理论研究"
+    },
+    {
+      "name": "public",
+      "desc": "公众传播"
+    },
+    {
+      "name": "doc",
+      "desc": "法规文献"
+    }
+  ],
+  "friendlink": [
+    {
+      "href": "https://toutiao.com/",
+      "name": "今日头条"
+    },
+    {
+      "href": "https://icystal.top/",
+      "name": "Icystal Works"
+    },
+    {
+      "href": "https://github.com/crystalrays/newsweb",
+      "name": "Github"
+    }
+  ]
+}

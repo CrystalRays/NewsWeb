@@ -2,25 +2,48 @@ $=function(data){return document.querySelector(data);};
 loading=false
 newsposition=0
 window.onload=function(){
-    var dp1=datepicker();
-    dp1.init("#filter-end-date");
-    var dp2=datepicker();
-    dp2.init("#filter-begin-date");
-
-    cookielogin();
+    getData("/js/site.json").then(res=>{
+        document.title=res.data.title;
+        var ele=$("li")
+        ele.addEventListener("click",()=>{chgcate(ele)});
+        res.data.category.forEach(each=>{
+            
+            var newli=ele.cloneNode(true);
+            newli.querySelector("a").name=each.name
+            newli.querySelector("a").setAttribute("href","#"+each.name);
+            newli.querySelector("a").innerHTML=each.desc;
+            newli.querySelector("a").addEventListener("click",()=>(chgcate(newli.querySelector("a"))));
+            newli.querySelector("a").className="channel-item";
+            $(".channel ul").insertBefore(newli,ele.nextElementSibling)
+        })
+        res.data.friendlink.forEach(each=>{
+            var newli=ele.cloneNode(true);
+            newli.querySelector("a").setAttribute("href",each.href);
+            newli.querySelector("a").innerHTML=each.name;
+            newli.className="item";
+            $(".pane-module.undefined .links-wrapper").appendChild(newli);
+        })
+        var dp1=datepicker();
+        dp1.init("#filter-end-date");
+        var dp2=datepicker();
+        dp2.init("#filter-begin-date");
     
-    // console.log(height,"feed的计算高度")
-    $(".feed-list").onscroll = function(){
-        pos=$(".feed-list").scrollTop+$(".feed-list").offsetHeight-$(".feed-list").scrollHeight
-        // console.log(pos)
-        if(pos<=5 && pos>=-5 && !loading){
-            
-            // console.log("load")
-            category=window.location.hash.substr(1);
-            loadNews(category?category:"suggest",newsposition,10);
-            
+        cookielogin();
+        
+        // console.log(height,"feed的计算高度")
+        $(".feed-list").onscroll = function(){
+            pos=$(".feed-list").scrollTop+$(".feed-list").offsetHeight-$(".feed-list").scrollHeight
+            // console.log(pos)
+            if(pos<=5 && pos>=-5 && !loading){
+                
+                // console.log("load")
+                category=window.location.hash.substr(1);
+                loadNews(category?category:"suggest",newsposition,10);
+                
+            }
         }
-    }
+    })
+
 }
 
 function paneclose(){
@@ -546,9 +569,6 @@ chgcate=(current)=>{
     }
 }
 
-document.querySelectorAll(".channel-item").forEach(current=>{
-    current.addEventListener("click",()=>(chgcate(current)))
-})
 
 fadeinanime=(element)=>{
     element.style.opacity="0";
