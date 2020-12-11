@@ -9,6 +9,23 @@ import sys
 import jieba
 import jieba.analyse
 import pymysql
+
+try:
+    if __name__.split(".")[0]=="spyder":
+        from spyder.config import * 
+    else:
+        from config import *
+    db=pymysql.connect(host=db_host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
+except:
+    db_host,db_user,db_passwd,db_name=input("请输入要连接的数据库主机,用户名,密码以及数据库名称:localhost user password databasename:",).split()
+    open("config.py","w").write('''db_host='{db_host}'
+db_user="{db_user}"
+db_passwd='{db_passwd}'
+db_name="{db_name}"
+    ''')
+    db=pymysql.connect(host=db_host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
+
+
 def tags_update(url,id):
     cur=db.cursor()
     r=requests.get(url)
@@ -145,17 +162,17 @@ def main():
     if cur.execute(s):
         pass
     else:
-        with open("{}/mysql_sina_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_sina_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
-        with open("{}/mysql_news_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_news_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
-        with open("{}/mysql_user_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_user_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
-        with open("{}/mysql_useroperate_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_useroperate_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
-        with open("{}/mysql_tags_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_tags_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
-        with open("{}/mysql_userhistory_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
+        with open("{}/spyder/mysql_userhistory_create.sql".format(sys.path[0]),encoding="utf-8") as create_sql:
                     cur.execute(create_sql.read())
     r = requests.get('http://mil.news.sina.com.cn/roll/index.d.html?cid=57918&page=1')
     cs(r)#爬取导航页面
@@ -165,8 +182,6 @@ def main():
     cs(r)
     news_update_time()#更新time为空的的数据集
 if __name__=='__main__':
-    host,db_user,db_passwd,db_name=input("请输入要连接的数据库主机,用户名,密码以及数据库名称:localhost user password databasename:",).split()
-    db=pymysql.connect(host=host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
     try:
         main()
     except KeyboardInterrupt:
