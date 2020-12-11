@@ -1,33 +1,25 @@
 {
-  "title": "今日军事",
+  "title": "今日时事",
   "category": [
     {
-      "name": "political",
-      "desc": "军政防务"
+      "name": "China",
+      "desc": "中国"
     },
     {
-      "name": "movement",
-      "desc": "战事行动"
+      "name": "America",
+      "desc": "美国"
     },
     {
-      "name": "edu",
-      "desc": "院校教育"
+      "name": "Japan",
+      "desc": "日本"
     },
     {
-      "name": "tech",
-      "desc": "军工科技"
+      "name": "huachuny",
+      "desc": "华春莹"
     },
     {
-      "name": "theory",
-      "desc": "理论研究"
-    },
-    {
-      "name": "public",
-      "desc": "公众传播"
-    },
-    {
-      "name": "doc",
-      "desc": "法规文献"
+      "name": "wangyi",
+      "desc": "王毅"
     }
   ],
   "friendlink": [
