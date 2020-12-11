@@ -1,6 +1,8 @@
 # NewsWeb
 
-这是一个支持前后端分离的单页应用（Single Page Application）新闻网站，你可以将前端、后端和数据库部署在三台独立的服务器上。
+![](https://s3.ax1x.com/2020/12/12/rEhYI1.png)
+
+这是一个基于python 3 fastapi和原生JavaScript，支持前后端分离的单页应用（Single Page Application）新闻聚合网站，你可以将前端、后端和数据库部署在三台独立的服务器上。
 
 ## 文件目录结构
 
