@@ -34,7 +34,7 @@ def spyderrun():
     try:np.main()
     except KeyboardInterrupt:
         print("Ctrl-C captured,Exiting!\n")
-    t=Timer(3600,spyderrun)
+    t=Timer(20000,spyderrun)
     t.start()
 
 

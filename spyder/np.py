@@ -43,7 +43,7 @@ def tags_update(url,id):
             cur.execute("insert into tags(article,tag)values(%s,%s)",(id,tag))
             db.commit()
         except:
-            print(url)
+            print(1,url)
 def news_update_context(url):
     r = requests.get(url)
     r.encoding = 'utf-8'
@@ -65,7 +65,7 @@ def news_update_context(url):
         cur.execute("update news set context=%s where url like %s",(soup,url))
         db.commit()
     except:
-        print(soup)     
+        print(2,url)     
 def news_update_time():
     cur=db.cursor()
     cur.execute('select url,time from news where time is NULL')
@@ -81,12 +81,12 @@ def news_update_time():
                 fsc= html.xpath(".//*[@class='date']/text()")[0]
                 print(url,fsc)
             except:
-                print(url)
+                print(3,url)
             try:
                 cur.execute("update news set time=str_to_date(%s,'%%Y年%%m月%%d日 %%H:%%i') where url like %s",(fsc,url))
                 db.commit()
             except:
-                print(url)
+                print(4,url)
 def news_downloads(urls):
     for url in urls:
         cur=db.cursor()
@@ -111,7 +111,7 @@ def news_downloads(urls):
             fsc= html.xpath(".//*[@class='date']/text()")[0]#爬取文章时间
             print(url,fsc)
         except:
-            print(url)
+            print(5,url)
         title=html.xpath(".//*[@class='main-title']/text()")#爬取文章标题
         kk=html.xpath(".//*[@class='keywords']/a/text()")#爬取文章关键字
         keyword=""
@@ -124,7 +124,7 @@ def news_downloads(urls):
             cur.execute("insert into news(url,title,au_fr,keyword,time,context)values(%s,%s,%s,%s,str_to_date(%s,'%%Y年%%m月%%d日 %%H:%%i'),%s)",(url,title,author,keyword,fsc,x))
             db.commit()
         except:
-            print(url)
+            print(6,url)
 def cs(r):
     r.encoding = 'utf-8'
     html = etree.HTML(r.text)
@@ -156,7 +156,7 @@ def cs(r):
             if rest==None:
                 tags_update(url[0],res)
         except:
-            print(url)
+            print(7,url)
 def main():
     cur=db.cursor()
     s="show tables"
