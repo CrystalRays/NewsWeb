@@ -9,6 +9,15 @@ import sys
 import jieba
 import jieba.analyse
 import pymysql
+
+if __name__.split(".")[0]=="spyder":
+    from backend.config import * 
+else:
+    from config import *
+
+
+db = pymysql.Connect(host=db_host, user=db_user, passwd=db_passwd, db=db_db,charset='utf8')
+
 def tags_update(url,id):
     cur=db.cursor()
     r=requests.get(url)
@@ -158,7 +167,6 @@ def main():
 if __name__=='__main__':
     # print("请输入要连接的数据库ip,用户名,密码以及数据库名称:localhost user password databasename:%s %s %s %s",)
     try:
-        db = pymysql.connect("localhost", "spider", "123456", "military", charset='utf8' )
         main()
     except KeyboardInterrupt:
         sys.stderr.write("\rCtrl-C captured,Exiting!\n")

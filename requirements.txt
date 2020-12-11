@@ -1,0 +1,4 @@
+beautifulsoup4>=4.4.0
+jieba>=0.42.1
+pymysql>=0.10.1
+fastapi>=0.61.2

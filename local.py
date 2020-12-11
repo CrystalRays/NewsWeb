@@ -6,8 +6,10 @@ from fastapi.staticfiles import StaticFiles
 import io
 import os
 import mimetypes
+from threading import Timer
 
 from backend.app import *
+from spyder import np
 
 app.mount("/css", StaticFiles(directory="frontend/css"), name="css")
 app.mount("/image", StaticFiles(directory="frontend/image"), name="image")
@@ -27,9 +29,17 @@ async def home():
 #     # print(c)
 #     return StreamingResponse(content=io.BytesIO(c), status_code=200,media_type=mimetypes.guess_type(file)[0])
 
+def spyderrun():
+    try:np.main()
+    except KeyboardInterrupt:
+        print("Ctrl-C captured,Exiting!\n")
+    t=Timer(2,spyderrun)
+    t.start()
+
 
 
 if __name__ == "__main__":
+    spyderrun()
     ip=input("server ip:")
     port=input("server port:")
     uvicorn.run(app,host=ip,port=int(port))
