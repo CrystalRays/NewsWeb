@@ -1005,7 +1005,6 @@ a:visited {
   display: flex;
   margin-bottom: 20px;
   z-index: 1;
-  position: fixed;
   width: 660px;
 }
 
@@ -1693,8 +1692,6 @@ a:visited {
   height: calc(100vh - 80px);
   overflow: hidden;
   overflow-y: auto;
-  width: 660px;
-  position: fixed;
 }
 .feed-list::-webkit-scrollbar {
   display: none;
@@ -1702,7 +1699,6 @@ a:visited {
 .feedbox-wrapper {
   width: 660px;
   margin: 0 auto;
-  margin-top: 60px;
 }
 
 .feedbox-wrapper .link {
@@ -2437,4 +2433,18 @@ h1 {
   font-size: 14px;
   padding-top: 10px;
   text-align: center;
+}
+#usercenter-container .tag {
+  font-size: 18px;
+  color: red;
+  margin-right: 10px;
+  padding: 1px 2px;
+  border: 1px solid red;
+  line-height: 32px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#tagbox{
+  height: 180px;
+  overflow-y: auto;
 }

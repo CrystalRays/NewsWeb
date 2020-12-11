@@ -37,7 +37,7 @@
                 <li>
                   <a class="channel-item" name="doc" href="#doc" target="_self">法规文献</a>
                 </li>
-                <li class="channel-more">
+                <li >
                   <a class="channel-item" name="search" href="#search" target="_self" style="height: 0px; overflow: hidden" id="search-tab">搜索</a>
                 </li>
                 <li class="channel-more" onclick="paneopen(0)">
@@ -55,7 +55,7 @@
             </div>
             <div class="feedbox-wrapper">
               <div class="feed-box">
-                <div style="position: fixed; width: 660px; background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); z-index: 1; height: 20px"></div>
+                <div style="position: absolute; width: 660px; background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)); z-index: 1; height: 20px"></div>
                 <div class="no-mode" style="display: none" article="">
                   <a class="title-box">标题</a>
                   <div class="footer-bar">
@@ -202,7 +202,7 @@
                 <div id="close-sector" style="float: right; margin: 0; font-size: 24px; top: -10px; right: -5px" onclick="paneclose()">×</div>
                 <div id="chgpwd-sector" onclick="panelswitcher(2)">修改密码</div>
                 <div id="avator-sector" onclick="panelswitcher(3)">修改头像</div>
-                <div id="chgfavor-sector" onclick="panelswitcher(4)">修改偏好</div>
+                <div id="chgfavor-sector" onclick="panelswitcher(4)">订阅标签</div>
                 <div id="login-sector" onclick="panelswitcher(0)">用户登录</div>
                 <div id="register-sector" onclick="panelswitcher(1)">用户注册</div>
               </div>
@@ -219,7 +219,7 @@
                         p-id="6291"
                       ></path>
                     </svg>
-                    <input name="nickname" defaultplaceholder="昵称" placeholder="昵称" onclick="inputnormalize(this)" />
+                    <input name="nickname"  minlength ="3" maxlength="64" defaultplaceholder="昵称" placeholder="昵称" onclick="inputnormalize(this)" />
                   </div>
                   <div id="email">
                     <svg t="1606440651556" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4516" width="200" height="200">
@@ -254,10 +254,10 @@
                         p-id="10644"
                       ></path>
                     </svg>
-                    <input name="password" type="password" defaultplaceholder="密码" placeholder="密码" onclick="inputnormalize(this)" onkeyup="repwdchg()" />
+                    <input name="password" type="password"  minlength="6" maxlength="20" defaultplaceholder="密码" placeholder="密码" onclick="inputnormalize(this)" onkeyup="repwdchg()" />
                   </div>
                   <div id="repasswd">
-                    <svg t="1606441786580" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10641" width="200" height="200">
+                    <svg t="1606441786580" class="icon"  minlength="6" maxlength="20" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10641" width="200" height="200">
                       <path d="M762 404.5h-35.8v-73.7c0-127.2-92.7-230.7-206.6-230.7H503c-113.9 0-206.6 103.5-206.6 230.7v73.7h-35.8v-73.7c0-147 108.7-266.6 242.4-266.6h16.6C653.3 64.2 762 183.8 762 330.8v73.7z" p-id="10642"></path>
                       <path
                         d="M797.8 959.6h-573c-49.4 0-89.5-40.2-89.5-89.5v-394c0-49.4 40.2-89.5 89.5-89.5h573c49.4 0 89.5 40.2 89.5 89.5V870c0.1 49.4-40.1 89.6-89.5 89.6z m-573-537.2c-29.6 0-53.7 24.1-53.7 53.7V870c0 29.6 24.1 53.7 53.7 53.7h573c29.6 0 53.7-24.1 53.7-53.7V476.1c0-29.6-24.1-53.7-53.7-53.7h-573z"
@@ -275,6 +275,10 @@
                     id="uploadAvator"
                     style="display: none; padding-top: 200px; width: 200px; height: 200px; background-image: url(/image/user.svg); align-self: center; cursor: pointer; background-repeat: no-repeat; background-size: cover; overflow: hidden; background-position: center"
                   />
+                  <div id="tagSetter">
+                    <div id="tagbox"></div><svg t="1607611601344" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2478" width="200" height="200"><path d="M984.687304 557.501217 519.880348 92.738783c-38.956522-38.956522-112.64-69.520696-167.735652-69.565217L141.490087 23.017739c0 0-0.044522 0-0.089043 0-32.812522 0-63.799652 12.154435-84.969739 33.346783-16.918261 16.918261-26.223304 38.466783-26.201043 60.68313L30.274783 188.816696l44.521739-0.022261L74.752 116.98087c0-13.200696 7.145739-23.151304 13.156174-29.161739C100.61913 75.130435 120.609391 67.539478 141.401043 67.539478c0.022261 0 0.044522 0 0.066783 0l210.654609 0.155826c43.25287 0.022261 105.672348 25.911652 136.281043 56.520348l464.806957 464.784696c26.045217 26.045217 26.045217 68.407652 0 94.45287L690.665739 946.020174c-26.045217 26.022957-68.407652 26.022957-94.45287 0L131.383652 481.146435c-33.28-33.28-56.453565-81.897739-56.475826-104.71513l-0.022261-57.477565-44.521739 0.022261 0.022261 57.477565c0 37.398261 30.541913 97.213217 69.520696 136.169739L564.758261 977.497043c21.704348 21.704348 50.198261 32.545391 78.692174 32.545391 28.516174 0 57.010087-10.863304 78.714435-32.545391l262.544696-262.566957C1028.096 671.543652 1028.096 600.909913 984.687304 557.501217z" p-id="2479"></path><path d="M302.169043 419.528348c-32.100174 0-62.285913-12.510609-85.014261-35.216696-46.83687-46.85913-46.85913-123.12487 0-170.006261 22.728348-22.706087 52.914087-35.194435 85.014261-35.194435s62.263652 12.488348 84.969739 35.172174c46.83687 46.881391 46.83687 123.14713 0.022261 170.006261C364.454957 407.017739 334.269217 419.528348 302.169043 419.528348zM302.169043 223.632696c-20.21287 0-39.223652 7.880348-53.537391 22.149565-29.495652 29.495652-29.495652 77.512348 0 107.030261 28.605217 28.582957 78.447304 28.582957 107.052522 0 29.473391-29.495652 29.473391-77.512348 0-107.052522C341.370435 231.513043 322.359652 223.632696 302.169043 223.632696z" p-id="2480"></path></svg>
+                    <input name="tagedit"  max="128" defaultplaceholder="添加标签，逗号分隔" placeholder="添加标签，逗号分隔"  onclick="inputnormalize(this)" onchange="gentagview()" oninput="gentagview()"/>
+                  </div>
                   <button class="login-button" id="opbtn" action="javascript:op(0)">登录</button>
                   <div style="text-align: left" id="pwdopt">
                     <input type="checkbox" name="remember" style="height: 18px; margin: 0; width: 18px; float: left" value="1" />

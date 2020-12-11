@@ -25,10 +25,10 @@ else:
 app=FastAPI()
 secret=os.urandom(24)
 
-# @app.exception_handler(RequestValidationError)
-# async def request_validation_exception_handler(request,exc):
-#     print(exc)
-#     return JSONResponse({"code": "400", "message": "Incorrect Params"},status_code=422)
+@app.exception_handler(RequestValidationError)
+async def request_validation_exception_handler(request,exc):
+    print(exc)
+    return JSONResponse({"code": "400", "message": "Incorrect Params"},status_code=422)
 
 
 # @app.post('/test')
@@ -56,7 +56,7 @@ def authe(token:str):
 @app.get("/user/auth")
 async def auth(token:str):
     user= authe(token)
-    return {'nickname':user['nickname'],'token': token,"favor":user["favor"],"tags":user["tags"]}
+    return {'nickname':user['nickname'],'token': token,"avator":user["avator"],"favor":user["favor"],"tags":user["tags"]}
 
 @app.get("/user/renew")
 async def renew(token:str):
@@ -109,6 +109,17 @@ async def chgpwd(token:str,password:str=Body(...),repasswd:str=Body(...)):
     else:
         return JSONResponse({'result':"unknown error"},status_code=500)
 
+@app.post('/user/chgtag')
+async def chgtag(token:str,tags:dict=Body(...)):
+    user=authe(token)
+    tags=tags.get("tags")
+    if tags.count(",")>=10:
+        return HTTPException(400,"Too many tags")
+    if update_user(user["email"],tags=tags):
+        return JSONResponse({'result':"success"},status_code=200)
+    else:
+        return JSONResponse({'result':"unknown error"},status_code=500)
+
 
 def newslist(res:tuple):
     res=list(map(list,res))
@@ -139,7 +150,7 @@ async def tag(token:str,tag:str,start:int,num:int):
     if num>=200:
         raise HTTPException(400,"too much response content")
     user=authe(token)
-    res=tag_loader(tags=tag,favor=user["favor"])
+    res=tag_loader(tag=tag,start=start,num=num,favor=user["favor"])
     return newslist(res)
 
 def imagezipper(contents):

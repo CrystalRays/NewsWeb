@@ -1,6 +1,6 @@
 # NewsWeb
 
-这是一个支持前后端分离的网站，你可以将前端、后端和数据库部署在三台独立的服务器上。
+这是一个支持前后端分离的单页应用（Single Page Application）新闻网站，你可以将前端、后端和数据库部署在三台独立的服务器上。
 
 ## 文件目录结构
 
@@ -87,13 +87,13 @@
 ### 数据后台
 
 
-- [-] 爬虫
+- [x] 数据爬取
 
-- [ ] 用户偏好分析
+- [x] 用户偏好分析
 
 - [ ] 新闻自动分类
 
-- [ ] 新闻关键词提取
+- [x] 新闻关键词提取
 
 - [ ] 新闻关联性分析
 
@@ -107,7 +107,7 @@ python3 local.py
 
 ### 分布式部署
 
-#### 数据库服务器
+#### 数据服务器
 
 安装mysql/mariadb，配置my.ini/my.conf允许远程连接
 
@@ -120,6 +120,11 @@ create database example;
 ```sql
 create user `example`@`%` identified by 'password';
 grant all privileges on `example`.* to `example`@`%` identified by 'password';
+```
+
+运行自动部署脚本
+```python
+python xxx.py
 ```
 
 #### 后端服务器

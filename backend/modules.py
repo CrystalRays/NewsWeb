@@ -144,7 +144,7 @@ def add_user(email:str,nickname:str,passwd:str):
 def update_user(email:str,nickname:str="",password:str="",tags:str="",avator:str=""):
     if tags.count(",")>9:raise SqlException
     params=tuple(locals().items())
-    re_={"email":"[^0-9A-Za-z@\.]","nickname":"[^0-9A-Za-z\u4e00-\u9fa5]","password":"[^0-9A-Za-z]","tags":"[^\u4e00-\u9fa5,]","avator":"[^0-9A-Za-z\.;,/+:]"}
+    re_={"email":"[^0-9A-Za-z@\.]","nickname":"[^0-9A-Za-z\u4e00-\u9fa5]","password":"[^0-9A-Za-z]","tags":"[^0-9A-Za-z\u4e00-\u9fa5.·,]","avator":"[^0-9A-Za-z\.;,/+:]"}
     where=""
     setter=[]
     for k,v in params:
@@ -170,12 +170,12 @@ def news_loader(cate:str,start:int,num:int,favor:str="",hit_weight:int=10):
         from news x
         where {cate} and exists (select tag from tags where article=x.n_id and tag in (select '{favor}'))
         order by UNIX_TIMESTAMP(`time`)+{hit_weight} desc 
-        limit {start},{num}) order by UNIX_TIMESTAMP(`time`)+{hit_weight}
+        limit {start},{num}) order by UNIX_TIMESTAMP(`time`)+{hit_weight} desc
         '''
     return db_select(sql)
 
 def tag_loader(tag:str,start:int,num:int,favor:str="",hit_weight:int=10):
-    evil_check(tag)
+    evil_check(tag,"[^0-9A-Za-z\u4e00-\u9fa5]")
     evil_check(favor,"[^0-9A-Za-z\u4e00-\u9fa5,\.]")
     return db_select(f'''
         (select n_id,title,au_fr,time,category,hit,img,left(context,100) as 'summary' 
@@ -187,7 +187,7 @@ def tag_loader(tag:str,start:int,num:int,favor:str="",hit_weight:int=10):
         from news x
         where '{tag}' in (select tag from tags where article=x.n_id) and exists (select tag from tags where article=x.n_id and tag in (select '{favor}'))
         order by UNIX_TIMESTAMP(`time`)+{hit_weight} desc 
-        limit {start},{num}) order by UNIX_TIMESTAMP(`time`)+{hit_weight}
+        limit {start},{num}) order by UNIX_TIMESTAMP(`time`)+{hit_weight} desc
         '''
         )
 
@@ -202,7 +202,7 @@ def article_loader(nid:int,email:str):
 
 def search_loader(exp:str,start:int,num:int,hit_weight:str=10):
     evil_check(exp,"[^0-9A-Za-z\u4e00-\u9fa5\'% (),]")
-    return db_select(f"select n_id,title,au_fr,time,category,hit,img,left(context,100) as 'summary' from news where {exp} order by UNIX_TIMESTAMP(`time`)+{hit_weight} limit {start},{num}")
+    return db_select(f"select n_id,title,au_fr,time,category,hit,img,left(context,100) as 'summary' from news where {exp} order by UNIX_TIMESTAMP(`time`)+{hit_weight} desc limit {start},{num}")
 
 
 
