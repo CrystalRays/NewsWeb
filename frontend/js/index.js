@@ -8,6 +8,7 @@ window.onload=function(){
     dp2.init("#filter-begin-date");
 
     cookielogin();
+    
     // console.log(height,"feed的计算高度")
     $(".feed-list").onscroll = function(){
         pos=$(".feed-list").scrollTop+$(".feed-list").offsetHeight-$(".feed-list").scrollHeight
@@ -239,16 +240,17 @@ auth=function(token,func){
             }
         }()
     )
-
 }
 
 cookielogin=function(){
     if(document.cookie==""){
+        category=decodeURI(window.location.hash.substr(1));
+        chgcate($("a[name="+(category?category:"suggest")+"]"));
         return
     }
     cookie=document.cookie.substring(document.cookie.indexOf("token")+6);
     cookie=cookie.substring(0,cookie.indexOf(";")==-1?cookie.length:cookie.indexOf(";"));
-    auth(cookie,function(data){ userdata=data;loginanime();});
+    auth(cookie,function(data){ userdata=data;userSetup();loginanime();});
 }
 
 loadtags=()=>{
@@ -270,6 +272,13 @@ loadtags=()=>{
     }
 }
 
+userSetup=function(){
+    $("#user-avator").setAttribute("src",userdata.avator);
+    $("input[name=tagedit]").value=userdata.tags;
+    loadtags();
+    category=decodeURI(window.location.hash.substr(1));
+    chgcate($("a[name="+(category?category:"suggest")+"]"));
+}
 
 loginanime=function(){
     elements=[$("#login-button"),$("#register-button"),$("#user-avator"),$("#usercenter-button"), $("#logout-button")]
@@ -279,11 +288,6 @@ loginanime=function(){
     $("#user-avator").style.transform="translate(-200px,0px)";
     setStyle(elements,"opacity",["0","0","1","0","0"]);
     setTimeout(() => {
-        $("#user-avator").setAttribute("src",userdata.avator);
-        $("input[name=tagedit]").value=userdata.tags;
-        loadtags();
-        category=decodeURI(window.location.hash.substr(1));
-        chgcate($("a[name="+(category?category:"suggest")+"]"));
         setStyle(elements,"display",["none","none","1","",""])
         $("#usercenter-button").style.transform="translate(200px,0px)";
         $("#logout-button").style.transform="translate(200px,0px)";
@@ -318,8 +322,8 @@ login=function (){
                 autorenew()
             }
             paneclose();
+            userSetup();
             loginanime();
-            chgcate($("a[name=suggest]"));
         }
         else{
             logout();
