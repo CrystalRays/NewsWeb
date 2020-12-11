@@ -30,16 +30,15 @@ async def home():
 #     return StreamingResponse(content=io.BytesIO(c), status_code=200,media_type=mimetypes.guess_type(file)[0])
 
 def spyderrun():
+    print("Start Spyder...")
     try:np.main()
     except KeyboardInterrupt:
         print("Ctrl-C captured,Exiting!\n")
-    t=Timer(2,spyderrun)
+    t=Timer(3600,spyderrun)
     t.start()
 
 
 
 if __name__ == "__main__":
-    spyderrun()
-    ip=input("server ip:")
-    port=input("server port:")
-    uvicorn.run(app,host=ip,port=int(port))
+    Timer(60,spyderrun).start()
+    uvicorn.run(app,host=host_ip,port=int(host_port))

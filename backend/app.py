@@ -8,19 +8,18 @@ import uvicorn
 import re
 from datetime import datetime,timedelta
 import json
-import io
 import base64
 from PIL import Image
 import locale
 
+
 if __name__.split(".")[0]=="backend":
-    from backend.config import * 
     from backend.modules import *
     from backend.JWT import JWT,JWT_tail
 else:
-    from config import *
     from modules import *
     from JWT import JWT,JWT_tail
+
 
 app=FastAPI()
 secret=os.urandom(24)
@@ -202,5 +201,5 @@ async def search(s:str,start:int,num:int,token:str):
 
 if __name__ == "__main__":
     
-    try:uvicorn.run(app,host="0.0.0.0",port=8081)
+    try:uvicorn.run(app,host=host_ip,port=host_port)
     except:pass

@@ -5,25 +5,26 @@ from bs4 import BeautifulSoup
 import base64
 import re
 import sys
-import sys
 import jieba
 import jieba.analyse
 import pymysql
 
 try:
-    if __name__.split(".")[0]=="spyder":
-        from spyder.config import * 
-    else:
-        from config import *
-    db=pymysql.connect(host=db_host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
+    from config import *
 except:
-    db_host,db_user,db_passwd,db_name=input("请输入要连接的数据库主机,用户名,密码以及数据库名称:localhost user password databasename:",).split()
-    open("config.py","w").write('''db_host='{db_host}'
-db_user="{db_user}"
-db_passwd='{db_passwd}'
-db_name="{db_name}"
-    ''')
-    db=pymysql.connect(host=db_host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
+    try:
+        exec(open("config.py","r",encoding="utf8").read())
+    except:
+        db_host,db_user,db_passwd,db_db=[input(f"Setup MySQL {each}:") for each in ("Host","User","Password","DataBase")]
+        with open(sys.path[0]+"/config.py","w") as f:
+            f.write(f'''db_host='{db_host}'
+    db_user="{db_user}"
+    db_passwd='{db_passwd}'
+    db_db="{db_db}"''')
+
+db_name=db_db
+
+db=pymysql.connect(host=db_host, user=db_user, passwd=db_passwd, db=db_name,charset='utf8')
 
 
 def tags_update(url,id):
