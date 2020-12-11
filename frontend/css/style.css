@@ -947,7 +947,7 @@ a:visited {
 
 
 .feed-list {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 84px);
   overflow: hidden;
   overflow-y: auto;
 }
@@ -1013,11 +1013,12 @@ a:visited {
 .feedbox-wrapper .img-wrap > img {
   display: inline-block;
   max-width: 100%;
-  height: auto;
   vertical-align: middle;
   -webkit-transition: all 0.5s ease-out 0.1s;
   -moz-transition: all 0.5s ease-out 0.1s;
   transition: all 0.5s ease-out 0.1s;
+  height: 100%;
+  object-fit: cover;
 }
 
 .feedbox-wrapper .img-wrap .lazy-load-img[lazy="loading"] {

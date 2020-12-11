@@ -31,9 +31,7 @@ function paneclose(){
     for (each of $("#usercenter-container").getElementsByTagName("div")){
         each.style.color="";
     }
-    for (each of $("#usercenter-container").querySelectorAll("input")){
-        each.value=""
-    }
+
 }
 
 setStyle=(elements,style,valueList)=>{
@@ -54,6 +52,10 @@ userdata=null;
 var lastswitcher=null;
 
 panelswitcher=function(type){
+    for (each of $("#usercenter-container").querySelectorAll("input")){
+        each.value=""
+    }
+    outERRORremove();
     var displayparams=[["none","none","none","",""],["","","","none","none"]];
     setStyle([$("#chgpwd-sector"),$("#avator-sector"),$("#chgfavor-sector"),$("#login-sector")],"display",displayparams[Number(type>1)])
     $("#register-sector").style.display=displayparams[Number(type>1)][4];
@@ -264,7 +266,6 @@ loadtags=()=>{
             newli.querySelector("a").addEventListener("click",()=>(chgcate(newli.querySelector("a"))));
             newli.querySelector("a").className="channel-item tags";
             $(".channel ul").insertBefore(newli,$(".channel-more"));
-            $(".channel-more").style.display="None";
         });
     }
     else{
