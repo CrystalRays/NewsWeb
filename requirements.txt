@@ -2,3 +2,7 @@ beautifulsoup4>=4.4.0
 jieba>=0.42.1
 pymysql>=0.10.1
 fastapi>=0.61.2
+aiofiles>=0.6.0
+uvicorn>=0.13.0
+jwt>=1.1.0
+python-multipart>=0.0.5
